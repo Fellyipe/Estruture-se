@@ -1,0 +1,19 @@
+slot_offset_x = 0;
+slot_offset_y = -12;
+slot_x = x + slot_offset_x;
+slot_y = y + slot_offset_y;
+
+value = "";
+prompt_distance = 48;
+label_font = fnt_menu;
+label_color = c_white;
+crystal_inst = noone;
+target_inst = noone;
+incoming_count = 0;
+max_incoming = 0;
+overloaded = false;
+overload_cooldown = 0;
+overload_cooldown_max = 2000;
+accepts_crystal = true;
+occupied = false;
+address = 0x0000;

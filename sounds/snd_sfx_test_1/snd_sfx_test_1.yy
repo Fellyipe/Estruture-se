@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_sfx_test_1",
+  "audioGroupId":{
+    "name":"BGM",
+    "path":"audiogroups/BGM",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":0,
+  "duration":0.08106576,
+  "name":"snd_sfx_test_1",
+  "parent":{
+    "name":"Sons",
+    "path":"folders/Sons.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_sfx_test_1.mp3",
+  "type":0,
+  "volume":1.0,
+}
