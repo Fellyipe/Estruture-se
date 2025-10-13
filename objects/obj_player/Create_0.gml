@@ -5,13 +5,15 @@
 //vy = 0;
 
 
-sprite[RIGHT] = spr_player_right;
-sprite[UP] = spr_player_up;
-sprite[LEFT] = spr_player_left;
-sprite[DOWN] = spr_player_down;
+sprite[RIGHT] = spr_player_right_1;
+sprite[UP] = spr_player_up_1;
+sprite[LEFT] = spr_player_left_1;
+sprite[DOWN] = spr_player_down_1;
 
 face = DOWN;
 
+view_zoom = 1;
+view_max_zoom = 10;
 
 
 

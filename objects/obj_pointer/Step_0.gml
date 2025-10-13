@@ -1,4 +1,3 @@
-/// obj_pointer - STEP (versão: E = pegar/colar, R = editar texto)
 slot_x = x + slot_offset_x;
 slot_y = y + slot_offset_y;
 
@@ -9,8 +8,15 @@ if (overload_cooldown > 0) {
 }
 
 // proximidade do player
-var p = instance_nearest(x, y, obj_player);
-var can_interact = (p != noone) && point_distance(x, y, p.x, p.y) <= prompt_distance;
+// var p = instance_nearest(x, y, obj_player);
+// caches o player na primeira vez para evitar instance_nearest
+if (!instance_exists(player_ref)) {
+    if (instance_number(obj_player) > 0) {
+        player_ref = instance_find(obj_player, 0); // assume 1 player
+    }
+}
+
+var can_interact = (player_ref != noone) && point_distance(x, y, player_ref.x, player_ref.y) <= prompt_distance;
 
 // ========== Tecla E: colocar / pegar ==========
 //if (can_interact && keyboard_check_pressed(ord("E"))) {
@@ -34,7 +40,7 @@ var can_interact = (p != noone) && point_distance(x, y, p.x, p.y) <= prompt_dist
 //}
 
 // ========== Tecla R: abrir editor de texto (sempre que perto) ==========
-if (can_interact && keyboard_check_pressed(ord("R"))) {
+if (can_interact && keyboard_check_pressed(ord("R")) && !value_locked) {
     // evita abrir duas overlays ao mesmo tempo
     if (!instance_exists(obj_text_input)) {
         var o = instance_create_layer(0, 0, "GUI", obj_text_input);
@@ -43,4 +49,9 @@ if (can_interact && keyboard_check_pressed(ord("R"))) {
         o.init_text = string(value); // valor inicial para mostrar
 		o.input_text = string(value);
     }
+}
+
+
+if !energized {
+	image_index = 0;
 }

@@ -5,6 +5,8 @@ function save_json_filename(slot) {
 	return "save_slot" + string(slot) + ".json";
 }
 
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
+
 /// @desc           Salva um arquivo de backup (.bak) do arquivo especificado. 
 /// @param {string}  path    O nome do arquivo que será verificado e, se existir, será copiado para um arquivo de backup.
 function make_backup_file(path) {
@@ -40,6 +42,9 @@ function make_backup_file(path) {
 	file_text_write_string(fw, content);
 	file_text_close(fw);
 }
+
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
+
 //function make_backup_file(path) {
 	
 //	if (file_exists(path)) {
@@ -56,6 +61,8 @@ function make_backup_file(path) {
 //	    file_text_close(fw);
 //	}
 //}
+
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
 
 /// @description Escreve text em arquivo path de forma atômica: escreve tmp -> substitui.
 /// @param {string} path Caminho do arquivo destino.
@@ -84,6 +91,9 @@ function write_text_atomic(path, text) {
 
 	return true;
 }
+
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
+
 //function write_text_atomic(path, text) {
 
 //	/// 1) escreve tmp
@@ -109,6 +119,7 @@ function write_text_atomic(path, text) {
 
 //}
 
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
 
 /// @desc Lê e retorna o conteúdo de um arquivo de texto. 
 /// @desc Retorna "" caso o arquivo não exista ou estiver vazio
@@ -136,6 +147,9 @@ function read_text_file(path) {
 
 	return content;
 }
+
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
+
 //function read_text_file(path) {
 //	if (!file_exists(path)) return "";
 
@@ -148,3 +162,91 @@ function read_text_file(path) {
 //	file_text_close(fr);
 //	return content;
 //}
+
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
+
+// Função chamada quando jogador escolhe "Sair para o Lobby"
+function on_player_exit_room() {
+    // 1) atualiza posição do player no save_state.player (opcional)
+    if (instance_exists(obj_player)) {
+        var px = obj_player.x;
+        var py = obj_player.y;
+        if (variable_global_exists("save_state")) {
+            obj_save_manager.save_state.player.x = px;
+            obj_save_manager.save_state.player.y = py;
+            obj_save_manager.save_state.player.room_index = room;
+            obj_save_manager.save_state.player.room_name = room_get_name(room);
+        }
+    }
+
+    // 2) salva o estado da sala em memória
+    with (obj_save_manager) {
+        save_room_state(room_get_name(room)); // grava em save_state.rooms
+    }
+
+    // 3) opcional: gravar em disco no slot 1
+    with (obj_save_manager) {
+        save_slot(1); // escreve JSON (faz backup e atomic write)
+    }
+
+    // 4) ir para lobby
+    room_goto(rm_lobby); // seu room index para o lobby
+}
+
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
+
+function on_checkpoint_reached() {
+    // atualiza player no save_state
+    if (instance_exists(obj_player)) {
+        obj_save_manager.save_state.player.x = obj_player.x;
+        obj_save_manager.save_state.player.y = obj_player.y;
+        obj_save_manager.save_state.player.room_index = room;
+        obj_save_manager.save_state.player.room_name = room_get_name(room);
+    }
+
+    // salva room state e grava em disco (slot automático)
+    with (obj_save_manager) {
+        save_room_state(room_get_name(room));
+        save_slot(1); // autosave no slot 1
+    }
+
+    // feedback
+    show_message("Checkpoint salvo.");
+}
+
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
+
+function ensure_player_not_carrying_for_save() {
+    if (!instance_exists(obj_player)) return;
+    with (obj_player) {
+        if (variable_instance_exists(id, "carrying") && carrying != noone) {
+            var carried = carrying;
+            // se for datacore ou crystal, soltar no chão à frente do player
+            if (instance_exists(carried) && (carried.object_index == obj_datacore || carried.object_index == obj_crystal)) {
+                // posiciona no chão à frente conforme face
+                var off = 16;
+                var nx = x; var ny = y;
+                switch (face) {
+                    case RIGHT: nx += off; break;
+                    case LEFT:  nx -= off; break;
+                    case UP:    ny -= off; break;
+                    case DOWN:  ny += off; break;
+                }
+                with (carried) {
+                    carried_by = noone;
+                    in_tower = noone;
+                    x = other.nx;
+                    y = other.ny;
+                }
+                carrying = noone;
+            } else {
+                // se for outro tipo, apenas drop normal
+                _drop_box(); // seu método antigo
+            }
+        }
+    }
+}
+
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
+
+

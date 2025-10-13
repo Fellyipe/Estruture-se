@@ -11,8 +11,8 @@
   "name":"obj_enemy",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos Basilares",
-    "path":"folders/Objetos/Objetos Basilares.yy",
+    "name":"Objetos de Mecânicas",
+    "path":"folders/Objetos/Objetos de Mecânicas.yy",
   },
   "parentObjectId":null,
   "persistent":false,

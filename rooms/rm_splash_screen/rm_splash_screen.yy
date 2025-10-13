@@ -1,7 +1,7 @@
 {
   "$GMRoom":"v1",
   "%Name":"rm_splash_screen",
-  "creationCodeFile":"",
+  "creationCodeFile":"rooms/rm_splash_screen/RoomCreationCode.gml",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
@@ -56,7 +56,7 @@
   "viewSettings":{
     "clearDisplayBuffer":true,
     "clearViewBackground":false,
-    "enableViews":true,
+    "enableViews":false,
     "inheritViewSettings":false,
   },
   "volume":1.0,

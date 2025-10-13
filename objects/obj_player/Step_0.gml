@@ -1,3 +1,17 @@
+//var zoom_speed = .1;
+//view_zoom += keyboard_check(vk_numpad8) * zoom_speed;
+//view_zoom -= keyboard_check(vk_numpad2) * zoom_speed;
+
+//view_zoom = clamp(view_zoom, 1, view_max_zoom);
+
+//view_wport = obj_display_manager.ideal_width / view_zoom;
+//view_yport = obj_display_manager.ideal_height / view_zoom; 
+
+//view_wport = x - view_wport / 2 - 10;
+//view_yport = y - view_yport / 2 - 10;
+
+
+
 var ix = keyboard_check(vk_right) - keyboard_check(vk_left);
 var iy = keyboard_check(vk_down)  - keyboard_check(vk_up);
 var stopped = true;
@@ -89,13 +103,15 @@ if (dx != 0) {
 
         // 4) se estou carregando, verificar se a posição da caixa ao mover para nx,ny fica livre
         if (carrying != noone) {
-            var attach = get_attach_pos(nx, ny, carry_side, carry_offset);
-			var blocked = would_collide_at(carrying, attach.x, attach.y);
+			if (carrying.object_index != obj_crystal || carrying.object_index != obj_datacore) {
+	            var attach = get_attach_pos(nx, ny, carry_side, carry_offset);
+				var blocked = would_collide_at(carrying, attach.x, attach.y);
 
-            if (blocked) {
-                // mover na direção X faria a caixa bater → bloqueia movimento
-                break;
-            }
+	            if (blocked) {
+	                // mover na direção X faria a caixa bater → bloqueia movimento
+	                break;
+	            }
+			}
         }
 
         // 5) tudo limpo: move 1px
@@ -164,12 +180,14 @@ if (dy != 0) {
 
         // se está carregando, verificar posição da caixa após mover
         if (carrying != noone) {
-            var attach2 = get_attach_pos(nx2, ny2, carry_side, carry_offset);
-			var blocked2 = would_collide_at(carrying, attach2.x, attach2.y);
+			if (carrying.object_index != obj_crystal || carrying.object_index != obj_datacore) {
+	            var attach2 = get_attach_pos(nx2, ny2, carry_side, carry_offset);
+				var blocked2 = would_collide_at(carrying, attach2.x, attach2.y);
 
-            if (blocked2) {
-                break;
-            }
+	            if (blocked2) {
+	                break;
+	            }
+			}
         }
 
         // mover 1px

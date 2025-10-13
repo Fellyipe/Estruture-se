@@ -6,4 +6,5 @@ global.is_paused = false;
 //{
 //    display_reset(8, true);
 //}
-display_reset(8, true);
+display_reset(0, true);
+

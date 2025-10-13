@@ -1,0 +1,1 @@
+on_checkpoint_activate();

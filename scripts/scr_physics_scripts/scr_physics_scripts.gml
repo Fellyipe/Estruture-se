@@ -1,10 +1,3 @@
-// Os recursos de script mudaram para a v2.3.0; veja
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 para obter mais informações
-function scr_physics_scripts(){
-
-}
-
-
 function box_push(box_id, ix, iy, strength) {
 	// aplica impulso proporcional à força / massa
 	if (instance_exists(box_id)) {
@@ -82,6 +75,12 @@ function would_collide_at(inst, tx, ty) {
 	// 3) se também quiser checar obj_box (empurráveis), descomente:
 	var found_box2 = collision_rectangle(left, top, right, bottom, obj_box, true, true);
 	if (found_box2 != noone && found_box2 != inst) return true;
+
+	var found_crystal = collision_rectangle(left, top, right, bottom, obj_crystal, true, true);
+	if (found_crystal != noone && found_crystal != inst) return true;
+
+	var found_datacore = collision_rectangle(left, top, right, bottom, obj_datacore, true, true);
+	if (found_datacore != noone && found_datacore != inst) return true;
 
 	var found_static_solid = collision_rectangle(left, top, right, bottom, obj_static_solid, true, true);
 	if (found_static_solid != noone && found_static_solid != inst) return true;
