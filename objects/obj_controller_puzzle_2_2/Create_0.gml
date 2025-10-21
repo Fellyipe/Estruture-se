@@ -40,6 +40,8 @@ function on_complete() {
 	}
 }
 
+concept_unlock("concept.nodes");
+
 //// no controller da sala, ao fechar/ir ao lobby:
 //with (global.save_manager) {
 //    save_room_state(room_get_name(room));

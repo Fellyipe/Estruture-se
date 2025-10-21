@@ -267,3 +267,49 @@ function check_sequence(head_id, target_list, use_nodes = false) {
     return true;
 }
 
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
+
+/// check_sequence_array(target_list) -> true/false
+function check_sequence_array(target_list) {
+    if (!ds_exists(target_list, ds_type_list)) return false;
+    var size = ds_list_size(target_list);
+    for (var i = 0; i < size; ++i) {
+        var want_entry = ds_list_find_value(target_list, i);
+
+        // deve ser um map com array_id e index
+        if (!ds_exists(want_entry, ds_type_map) || !ds_map_exists(want_entry, "array_id") || !ds_map_exists(want_entry, "index")) {
+            return false; // formato inválido para modo array
+        }
+
+        var aid = ds_map_find_value(want_entry, "array_id");
+        var idx = ds_map_find_value(want_entry, "index");
+
+        var elem = find_array_element(aid, idx);
+        if (elem == noone) return false;
+
+        // checar se ocupado (se exigido)
+        var req_occ = false;
+        if (ds_map_exists(want_entry, "require_occupied")) req_occ = ds_map_find_value(want_entry, "require_occupied");
+        if (req_occ) {
+            if (!variable_instance_exists(elem, "datacore_inst") || elem.datacore_inst == noone) return false;
+        }
+
+        // checar payload se especificado
+        if (ds_map_exists(want_entry, "payload")) {
+            var want_payload = ds_map_find_value(want_entry, "payload");
+            // pegar payload atual do elemento (adaptar conforme sua implementação)
+            var actual_payload = "";
+            if (variable_instance_exists(elem, "payload") && elem.payload != null) actual_payload = string(elem.payload);
+            //else if (variable_instance_exists(elem, "datacore_inst") && elem.datacore_inst != noone && instance_exists(elem.datacore_inst)) {
+            //    if (variable_instance_exists(elem.datacore_inst, "payload")) actual_payload = string(elem.datacore_inst.payload);
+            //}
+            if (string(actual_payload) != string(want_payload)) return false;
+        }
+
+        // opcional: checar energized se pedido
+        //if (ds_map_exists(want_entry, "require_energized") && ds_map_find_value(want_entry, "require_energized")) {
+        //    if (!variable_instance_exists(elem, "energized") || elem.energized != true) return false;
+        //}
+    }
+    return true;
+}

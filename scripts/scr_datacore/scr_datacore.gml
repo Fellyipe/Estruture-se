@@ -125,9 +125,6 @@ function place_datacore_on_tower2(dc_inst, tower_inst) {
 
 // <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
 
-
-
-
 /// Retira o datacore da torre (se houver) e coloca no player como carrying.
 /// Retorna true se sucesso, false caso contrário.
 function take_datacore_from_tower(tower_inst, player_inst) {
@@ -218,6 +215,17 @@ function find_slot_by_label(label) {
 	return noone;
 }
 
+/// retorna instância do obj_data_slot ou noone
+function find_element_by_tower_id(tower_id) {
+	var n = instance_number(obj_array_element);
+	for (var i = 0; i < n; ++i) {
+	    var s = instance_find(obj_array_element, i);
+	    if (!instance_exists(s)) continue;
+	    if (variable_instance_exists(s, "tower_id") && string(s.tower_id) == string(tower_id)) return s;
+	}
+	return noone;
+}
+
 // <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
 
 /// retorna instância do obj_datacore ou noone
@@ -231,4 +239,27 @@ function find_datacore_by_obj_id(obj_id) {
 	return noone;
 }
 
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
 
+/// find_array_element(array_id, index) -> inst_id or noone
+function find_array_element(array_id, index) {
+    if (is_undefined(array_id)) return noone;
+    var n = instance_number(obj_array_element);
+    for (var i = 0; i < n; ++i) {
+        var inst = instance_find(obj_array_element, i);
+        if (!instance_exists(inst)) continue;
+        // comparamos string/integer robusto
+        if (variable_instance_exists(inst, "array_id") && variable_instance_exists(inst, "index")) {
+            if (string(inst.array_id) == string(array_id) && real(inst.index) == real(index)) {
+                return inst;
+            }
+        }
+    }
+    return noone;
+}
+
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
+
+
+
+// <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>

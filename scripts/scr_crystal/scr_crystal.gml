@@ -403,7 +403,9 @@ function recompute_energy() {
 	//}
 	with(obj_controller_puzzle_base) {
 		var was_solved = solved;
-		solved = check_sequence(head_pointer, solution_list, owns_solution_maps);	
+		if (array_puzzle) solved = check_sequence_array(solution_list);
+		else solved = check_sequence(head_pointer, solution_list, owns_solution_maps);
+		
 		if (solved && !was_solved && is_callable(on_complete)) {
 	        on_complete();
 	    } else if (!solved && was_solved && is_callable(on_descomplete)) {

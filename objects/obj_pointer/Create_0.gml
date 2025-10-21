@@ -1,7 +1,10 @@
 slot_offset_x = 0;
-slot_offset_y = -12;
+slot_offset_y = -24;
 slot_x = x + slot_offset_x;
 slot_y = y + slot_offset_y;
+
+effect_current_time = 0; 
+effect_image_index = 0;
 
 //value = "null";
 //prompt_distance = 48;
@@ -25,6 +28,7 @@ incoming_count = 0;
 //emitter_queued = false;
 
 
+
 if (sprite_exists(sprite_index)) {
     sprite_bottom_offset = sprite_get_bbox_bottom(sprite_index);
 } else {
@@ -32,3 +36,6 @@ if (sprite_exists(sprite_index)) {
 }
 
 player_ref = noone;
+
+var foot_y = y + sprite_get_bbox_bottom(sprite_index) * image_yscale
+depth = -floor(foot_y);

@@ -22,6 +22,7 @@ ds_list_add(solution_list, m);
 owns_solution_maps = true;
 
 global.puzzle_2_1_completed = false;
+global.cur_day = "day_02_puzzle";
 
 on_complete = function() {
 	if (!global.puzzle_2_1_completed) {
@@ -29,3 +30,5 @@ on_complete = function() {
 		global.puzzle_2_1_completed = true;
 	}
 }
+
+concept_unlock("concept.pointers");

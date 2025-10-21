@@ -208,6 +208,25 @@ if (carrying == noone) {
     }
   }
 
+  // 0.5) tentar pegar DATACORE de um array_element próximo
+  var element_near = instance_nearest(x, y, obj_array_element);
+  if (
+    element_near != noone &&
+    _is_a_frente(element_near) &&
+    point_distance(x, y, element_near.x, element_near.y) <= pick_radius &&
+	!element_near.locked
+  ) {
+    // se o slot tem um datacore, pegue dele
+    if (
+      variable_instance_exists(element_near, "datacore_inst") &&
+      element_near.datacore_inst != noone
+    ) {
+      if (take_datacore_from_tower(element_near, id)) {
+        return; // já pegou, fim da interação
+      }
+    }
+  }
+
   // 1) tentar pegar cristal que esteja encaixado numa tower (comportamento antigo)
   var t = instance_nearest(x, y, obj_pointer);
   if (
@@ -322,8 +341,22 @@ if (carrying == noone) {
         if (_drop_box()) return;
       }
     } else {
-      // se não encontrou slot -> tentar largar no chão
-      if (_drop_box()) return;
+		var element_target = instance_nearest(x, y, obj_array_element);
+	    if (
+	      element_target != noone &&
+	      _is_a_frente(element_target) &&
+	      point_distance(x, y, element_target.x, element_target.y) <= pick_radius
+	    ) {
+			if (place_datacore_on_tower(id, element_target)) {
+				// encaixou com sucesso
+				return;
+		    } else {
+				// falhou: fallback -> largar no chão
+		        if (_drop_box()) return;
+		    }
+		} else {
+			if (_drop_box()) return;
+		}
     }
   }
   // se estiver carregando um cristal (comportamento antigo)

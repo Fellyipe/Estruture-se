@@ -37,6 +37,7 @@
     {"$GMObjectProperty":"v1","%Name":"icon_sprite","filters":[],"listItems":[],"multiselect":false,"name":"icon_sprite","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"spr_datacore_red","path":"sprites/spr_datacore_red/spr_datacore_red.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_datacore_red","varType":5,},
     {"$GMObjectProperty":"v1","%Name":"payload","filters":[],"listItems":[],"multiselect":false,"name":"payload","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":2,},
     {"$GMObjectProperty":"v1","%Name":"in_tower_node_label","filters":[],"listItems":[],"multiselect":false,"name":"in_tower_node_label","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":2,},
+    {"$GMObjectProperty":"v1","%Name":"in_tower_tower_id","filters":[],"listItems":[],"multiselect":false,"name":"in_tower_tower_id","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":2,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

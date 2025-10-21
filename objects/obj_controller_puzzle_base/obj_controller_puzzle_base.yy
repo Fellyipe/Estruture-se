@@ -32,6 +32,7 @@
     {"$GMObjectProperty":"v1","%Name":"solved","filters":[],"listItems":[],"multiselect":false,"name":"solved","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
     {"$GMObjectProperty":"v1","%Name":"owns_solution_maps","filters":[],"listItems":[],"multiselect":false,"name":"owns_solution_maps","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
     {"$GMObjectProperty":"v1","%Name":"show_debug_info","filters":[],"listItems":[],"multiselect":false,"name":"show_debug_info","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
+    {"$GMObjectProperty":"v1","%Name":"array_puzzle","filters":[],"listItems":[],"multiselect":false,"name":"array_puzzle","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

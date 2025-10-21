@@ -22,7 +22,7 @@ if (mag > 0) {
     iy /= mag;
 }
 
-if (instance_exists(obj_pauser)) {
+if (instance_exists(obj_pauser) || global.is_paused) {
 	ix = 0;
 	iy = 0;
 }
@@ -226,6 +226,12 @@ if stopped {
 }
 
 
+/// Step (obj_player ou objeto que precisa ser depth-sorted)
+
+var foot_y = y + sprite_get_bbox_bottom(sprite_index) * image_yscale;
+foot_y = floor(foot_y);
+var wanted_depth = -foot_y;
+if (depth != wanted_depth) depth = wanted_depth;
 
 
 

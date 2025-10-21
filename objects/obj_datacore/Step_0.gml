@@ -14,3 +14,8 @@ if (carried_by != noone) {
         in_tower = noone;
     }
 }
+
+var foot_y = y + sprite_get_bbox_bottom(sprite_index) * image_yscale;
+foot_y = floor(foot_y);
+var wanted_depth = -foot_y;
+if (depth != wanted_depth) depth = wanted_depth;

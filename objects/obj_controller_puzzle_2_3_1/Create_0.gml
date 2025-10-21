@@ -41,6 +41,8 @@ on_complete = function() {
 };
 
 
+obj_tablet.objective_set_visible("day_02_puzzle", "p2_1_report", true);
+
 
 //// no controller da sala, ao fechar/ir ao lobby:
 //with (global.save_manager) {

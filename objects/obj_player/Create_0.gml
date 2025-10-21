@@ -5,10 +5,10 @@
 //vy = 0;
 
 
-sprite[RIGHT] = spr_player_right_1;
-sprite[UP] = spr_player_up_1;
-sprite[LEFT] = spr_player_left_1;
-sprite[DOWN] = spr_player_down_1;
+sprite[RIGHT] = spr_player_right_work;
+sprite[UP] = spr_player_up_work;
+sprite[LEFT] = spr_player_left_work;
+sprite[DOWN] = spr_player_down_work;
 
 face = DOWN;
 

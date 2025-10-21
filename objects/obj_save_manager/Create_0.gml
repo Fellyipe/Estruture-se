@@ -3,6 +3,11 @@ global.save_manager = id;
 global.save_version = "1.0";
 global.save_slots = 3;
 
+room_spawn_coords = {};
+room_spawn_coords[$ "rm_lobby"] = { x: 544, y: 70, face: DOWN };
+room_spawn_coords[$ "rm_puzzle_2_1"] = { x: 48, y: 200, face: RIGHT };
+room_spawn_coords[$ "rm_puzzle_2_2"] = { x: 48, y: 200, face: RIGHT };
+
 // Estruturas internas (usar structs/arrays para json_encode direto)
 if (!variable_global_exists("pending_save_state")) {
 	save_state = {
@@ -26,7 +31,8 @@ if (!variable_global_exists("pending_save_state")) {
 			room: "", 
 			x:0, 
 			y:0 
-		}
+		},
+		concepts_unlocked: []
 	};
 } else {
 	save_state = {};
@@ -77,6 +83,9 @@ function save_slot(slot) {
     save_state.meta.slot = slot;
     save_state.meta.timestamp = date_current_datetime(); // _timestamp_now();
 
+	save_state.concepts_unlocked = variable_clone(global.unlocked_concepts);
+
+
     // atualiza player imediato se existir instância
     //if (instance_exists(obj_player)) {
     //    with (obj_player) {
@@ -95,7 +104,7 @@ function save_slot(slot) {
     write_text_atomic(fname, json_text);
 
     last_save_slot = slot;
-    show_message("Jogo salvo (JSON) no slot " + string(slot) + ".");
+    //show_message("Jogo salvo (JSON) no slot " + string(slot) + ".");
 }
 
 // <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
@@ -156,6 +165,11 @@ function load_slot(slot) {
     if (variable_struct_exists(prow, "room_index") && prow.room_index != room) {
         global.pending_load = { type: "slot_load", slot: slot };
         room_goto(prow.room_index);
+		
+		if (variable_struct_exists(room_spawn_coords, prow.room_name)) {
+			var rc = room_spawn_coords[$ prow.room_name];
+		    if (instance_exists(obj_player)) { with(obj_player) { x = rc.x; y = rc.y; face = rc.face; } }
+		}
         // o Room Start do manager aplicará player/puzzles depois que a room for carregada
     } else {
         // mesma room: aplica direto
@@ -175,7 +189,10 @@ function load_slot(slot) {
     }
 
     last_load_slot = slot;
-    show_message("Save carregado do slot " + string(slot) + ".");
+    //show_message("Save carregado do slot " + string(slot) + ".");
+	
+	concepts_init();
+	
     return true;
 }
 
@@ -440,7 +457,7 @@ function save_room_state_simple(room_name) {
         var drec = {
             obj_id: (variable_instance_exists(d,"obj_id")?d.obj_id:""),
 //            payload: (variable_instance_exists(d,"payload")?d.payload:""),
-            in_tower_node_label: (variable_instance_exists(d,"in_tower") && d.in_tower != noone && variable_instance_exists(d.in_tower,"node_label") ? d.in_tower.node_label : ""),
+			in_tower_node_label: (variable_instance_exists(d,"in_tower_node_label")?d.in_tower_node_label:""),
             x: d.x, y: d.y
         };
         array_push(room_rec.datacores, drec);
@@ -453,7 +470,7 @@ function save_room_state_simple(room_name) {
         if (!instance_exists(c)) continue;
         var crec = {
             obj_id: (variable_instance_exists(c,"obj_id")?c.obj_id:""),
-            in_tower_address: (variable_instance_exists(c,"in_tower") && c.in_tower != noone && variable_instance_exists(c.in_tower,"address") ? c.in_tower.address : ""),
+            in_tower_address: (variable_instance_exists(c,"in_tower_address")?c.in_tower_address:""),
             x: c.x, y: c.y
         };
         array_push(room_rec.crystals, crec);
@@ -612,9 +629,9 @@ function apply_room_state_simple(room_name, rooms_struct = save_state.rooms) {
     //}
 
     // 6) position player
-    if (variable_struct_exists(rec,"player") && instance_exists(obj_player)) {
-        with (obj_player) { x = rec.player.x; y = rec.player.y; }
-    }
+    //if (variable_struct_exists(rec,"player") && instance_exists(obj_player)) {
+    //    with (obj_player) { x = rec.player.x; y = rec.player.y; }
+    //}
 
     // 7) recompute energy to re-evaluate energized flags
     if (!is_undefined(recompute_energy)) recompute_energy();
@@ -660,7 +677,13 @@ function on_player_death() {
         // aplicar posição do checkpoint (se salvo)
         var cp = save_state.rooms_checkpoint[$ rn];
         if (variable_struct_exists(cp, "player") && instance_exists(obj_player)) {
-            with (obj_player) { x = cp.player.x; y = cp.player.y; }
+			
+			if (variable_struct_exists(room_spawn_coords, rn)) {
+				var rc = room_spawn_coords[$ rn];
+			    if (instance_exists(obj_player)) { with(obj_player) { x = rc.x; y = rc.y; } }
+			}
+		
+            //with (obj_player) { x = cp.player.x; y = cp.player.y; }
         }
         show_message("Você morreu — retornando ao último checkpoint.");
     } else {
@@ -669,7 +692,13 @@ function on_player_death() {
             apply_room_state_simple(rn, save_state.rooms_initial);
             var init = save_state.rooms_initial[$ rn];
             if (variable_struct_exists(init, "player") && instance_exists(obj_player)) {
-                with (obj_player) { x = init.player.x; y = init.player.y; }
+                
+				if (variable_struct_exists(room_spawn_coords, rn)) {
+					var rc = room_spawn_coords[$ rn];
+				    if (instance_exists(obj_player)) { with(obj_player) { x = rc.x; y = rc.y; } }
+				}
+				
+				//with (obj_player) { x = init.player.x; y = init.player.y; }
             }
             show_message("Você morreu — sala reiniciada do começo.");
         } else {

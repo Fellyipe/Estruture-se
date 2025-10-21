@@ -51,7 +51,21 @@ if (can_interact && keyboard_check_pressed(ord("R")) && !value_locked) {
     }
 }
 
-
-if !energized {
+// Evento Step
+if (!energized) {
 	image_index = 0;
+} else {
+	if(value != "null") {
+	    effect_current_time += 1; 
+	    if (effect_current_time mod 5 == 0) {
+	        effect_image_index += 1;
+			effect_current_time = 0;
+	    }
+
+	    if (effect_image_index >= 30) {
+	        effect_image_index = 0;
+	    }
+	} else {
+		effect_image_index = 0;
+	}
 }

@@ -26,8 +26,9 @@ draw_set_color(label_color);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(c_black);
+draw_set_font(global.fnt_oficial);
 if(energized) draw_set_color(c_gray);
-draw_text_transformed(x, y, var_name, 0.5, 0.5, 0);
+draw_text_transformed(x, y + 16, var_name, 0.5, 0.5, 0);
 
 
 // dica de interação
@@ -40,4 +41,8 @@ if (player_ref != noone && point_distance(x, y, player_ref.x, player_ref.y) <= p
     //draw_text(x, y - sprite_get_bbox_bottom(sprite_index) - 48,
     //    "E: Pegar/Colocar     R: Editar valor");
 	//draw_set_color(label_color);
+}
+
+if (value != "null" && energized) {
+	draw_sprite(spr_effect_energized, effect_image_index, x, y -24);
 }

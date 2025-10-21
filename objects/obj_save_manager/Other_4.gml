@@ -64,21 +64,21 @@ if (variable_global_exists("pending_save_state") && global.pending_save_state !=
         }
 
         // posicionar player segundo o loaded.player (se presente)
-        if (variable_struct_exists(ss, "player")) {
-            var prow = ss.player;
-            if (variable_struct_exists(prow, "room_name") && prow.room_name == room_get_name(room)) {
-                if (instance_exists(obj_player)) {
-                    with (obj_player) {
-                        if (variable_struct_exists(prow, "x")) x = prow.x;
-                        if (variable_struct_exists(prow, "y")) y = prow.y;
-                    }
-                } else {
-                    // guardar spawn para o Create do player
-                    global.player_spawn_x = prow.x;
-                    global.player_spawn_y = prow.y;
-                }
-            }
-        }
+        //if (variable_struct_exists(ss, "player")) {
+        //    var prow = ss.player;
+        //    if (variable_struct_exists(prow, "room_name") && prow.room_name == room_get_name(room)) {
+        //        if (instance_exists(obj_player)) {
+        //            with (obj_player) {
+        //                if (variable_struct_exists(prow, "x")) x = prow.x;
+        //                if (variable_struct_exists(prow, "y")) y = prow.y;
+        //            }
+        //        } else {
+        //            // guardar spawn para o Create do player
+        //            global.player_spawn_x = prow.x;
+        //            global.player_spawn_y = prow.y;
+        //        }
+        //    }
+        //}
 
         // recompute energy e limpeza do pending
         if (!is_undefined(recompute_energy)) recompute_energy();
