@@ -14,7 +14,10 @@
     "name":"Objetos de Mecânicas",
     "path":"folders/Objetos/Objetos de Mecânicas.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_movable_solid",
+    "path":"objects/obj_movable_solid/obj_movable_solid.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

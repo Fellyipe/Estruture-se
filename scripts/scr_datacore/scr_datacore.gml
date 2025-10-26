@@ -241,17 +241,15 @@ function find_datacore_by_obj_id(obj_id) {
 
 // <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
 
-/// find_array_element(array_id, index) -> inst_id or noone
+/// @desc  find_array_element(array_id, index) -> inst_id or noone
+/// @param {any} array_id Description
+/// @param {any} index Description
 function find_array_element(array_id, index) {
     if (is_undefined(array_id)) return noone;
-    var n = instance_number(obj_array_element);
-    for (var i = 0; i < n; ++i) {
-        var inst = instance_find(obj_array_element, i);
-        if (!instance_exists(inst)) continue;
-        // comparamos string/integer robusto
-        if (variable_instance_exists(inst, "array_id") && variable_instance_exists(inst, "index")) {
-            if (string(inst.array_id) == string(array_id) && real(inst.index) == real(index)) {
-                return inst;
+    with(obj_array_element) {
+        if (variable_instance_exists(id, "array_id") && variable_instance_exists(id, "index")) {
+            if (string(self.array_id) == string(array_id) && real(self.index) == real(index)) {
+                return id;
             }
         }
     }

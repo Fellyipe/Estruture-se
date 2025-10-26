@@ -348,8 +348,8 @@ var spr_highlight_9slice = spr_panel;
 // >> Camada 1: Coordenadas do corpo EXTERNO do tablet
 var sw = display_get_gui_width();
 var sh = display_get_gui_height();
-var tablet_pw = sw * 0.7;
-var tablet_ph = sh * 0.72;
+var tablet_pw = round(sw * 0.7);
+var tablet_ph = round(sh * 0.72);
 var tablet_px = (sw - tablet_pw) / 2;
 var tablet_py = (sh - tablet_ph) / 2;
 
@@ -368,11 +368,17 @@ var inactive_text_color = make_color_rgb(160, 170, 180);
 // FUNDO E MOLDURA PRINCIPAL
 // ===================================================================
 
-// Fundo escurecido
-draw_set_alpha(0.6);
 draw_set_color(c_black);
+draw_set_alpha(0.6 * animation_progress); // O fundo aparece suavemente junto com o painel.
 draw_rectangle(0, 0, sw, sh, false);
+
 draw_set_alpha(1);
+
+if (animation_progress  < 0.95) {
+    exit;
+}
+
+
 
 // >> NOVO: Desenha a moldura do tablet usando as coordenadas EXTERNAS
 draw_sprite_stretched(spr_tablet_body, 0, tablet_px, tablet_py, tablet_pw, tablet_ph);
@@ -496,7 +502,7 @@ if (tabs[current_tab] == "Conceitual") {
         var checkbox_y = ly + (line_h / 2); // Centraliza o sprite verticalmente na linha
 		//var fnt_oficial = global.fnt_oficial;
 		
-		scribble_font_set_default("fnt_oficial");
+		scribble_font_set_default("fnt_official_18");
 		if done draw_text_scribble(checkbox_x, checkbox_y, "[fa_middle][spr_checkbox, 0]  " + it.label) else draw_text_scribble(checkbox_x, checkbox_y, "[fa_middle][spr_checkbox, 1]  " + it.label);
         
         

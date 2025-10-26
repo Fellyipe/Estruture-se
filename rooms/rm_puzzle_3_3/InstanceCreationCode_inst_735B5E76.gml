@@ -1,0 +1,1 @@
+camera_target_y = 200;

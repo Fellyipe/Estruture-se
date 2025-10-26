@@ -1,17 +1,23 @@
 //ETAPA (STEP)
 
-// Toggle open/close with TAB or ESC
 if (keyboard_check_pressed(vk_tab)) {
-    tablet_open = !tablet_open;
-    global.is_paused = tablet_open;
-    input_cooldown = input_cooldown_max; // Add cooldown to prevent immediate re-trigger
-    
-    // Reset navigation state when opening
-    if (tablet_open) {
+    if (!tablet_open && !global.ui_blocked) {
+        tablet_open = true;
+        global.is_paused = true;
+        global.ui_blocked = true;
+        input_cooldown = input_cooldown_max;
+        
+        // Resetar o estado de navegação
         mode = "tabs";
-		conceptual_mode = "list";
-		conceptual_page = 0;
+        conceptual_mode = "list";
+        conceptual_page = 0;
         content_cursor = 0;
+		animation_progress = 0;
+    } else if (tablet_open) {
+        tablet_open = false;
+        global.is_paused = false;
+        global.ui_blocked = false;
+        input_cooldown = input_cooldown_max;
     }
 }
 
@@ -25,6 +31,14 @@ if (!tablet_open) {
 if (input_cooldown > 0) {
     input_cooldown -= 1;
     exit; // Exit here to prevent any input from being processed during cooldown
+}
+
+var target = (is_visible) ? 1 : 0;
+
+animation_progress = lerp(animation_progress, target, animation_speed);
+
+if (animation_progress < 0.95) {
+    exit;
 }
 
 // Navigation when in tabs area

@@ -71,10 +71,32 @@ if (dx != 0) {
         var nx = x + step;
         var ny = y;
 
-        // 1) colisão de parede com o player?
-        if (place_meeting(nx, ny, obj_wall) || place_meeting(nx, ny, obj_static_solid)) {
-            break; // parede bloqueia
+        // 1) colisão com paredes normais?
+		if (place_meeting(nx, ny, obj_wall) || place_meeting(nx, ny, obj_static_solid)) {
+		    break; // Parede sempre bloqueia
+		}
+		
+		var porta_id = instance_place(nx, ny, obj_door);
+        // Se existe uma porta na frente E ela está trancada...
+        if (porta_id != noone) {
+			if (porta_id.locked) {
+				break; // ...trate como uma parede e pare.
+			}
         }
+		
+		
+
+		// 1.5) colisão com sólidos especiais (como cristais)?
+		var solid_instance = instance_place(nx, ny, obj_movable_solid);
+
+		if (solid_instance != noone) {
+		    // Colidimos com um objeto sólido. Vamos investigar...
+			if (variable_instance_exists(solid_instance, "in_tower")) { 
+			    if (solid_instance.in_tower == noone) {
+			        break;
+			    }
+			}
+		}
 
         // 2) existe uma caixa "pushable" (obj_box) na frente?
         var box_id = instance_place(nx, ny, obj_box);
@@ -102,17 +124,17 @@ if (dx != 0) {
         }
 
         // 4) se estou carregando, verificar se a posição da caixa ao mover para nx,ny fica livre
-        if (carrying != noone) {
-			if (carrying.object_index != obj_crystal || carrying.object_index != obj_datacore) {
-	            var attach = get_attach_pos(nx, ny, carry_side, carry_offset);
-				var blocked = would_collide_at(carrying, attach.x, attach.y);
+        //if (carrying != noone) {
+		//	if (carrying.object_index != obj_crystal || carrying.object_index != obj_datacore) {
+	    //        var attach = get_attach_pos(nx, ny, carry_side, carry_offset);
+		//		var blocked = would_collide_at(carrying, attach.x, attach.y);
 
-	            if (blocked) {
-	                // mover na direção X faria a caixa bater → bloqueia movimento
-	                break;
-	            }
-			}
-        }
+	    //        if (blocked) {
+	    //            // mover na direção X faria a caixa bater → bloqueia movimento
+	    //            break;
+	    //        }
+		//	}
+        //}
 
         // 5) tudo limpo: move 1px
         x = nx;
@@ -154,10 +176,30 @@ if (dy != 0) {
         var nx2 = x;
         var ny2 = y + step2;
 
-        // colisão de parede com o player?
-        if (place_meeting(nx2, ny2, obj_wall) || place_meeting(nx2, ny2, obj_static_solid)) {
-            break;
+        // 1) colisão com paredes normais?
+		if (place_meeting(nx2, ny2, obj_wall) || place_meeting(nx2, ny2, obj_static_solid)) {
+		    break; // Parede sempre bloqueia
+		}
+
+		// 1.5) colisão com sólidos especiais (como cristais)?
+		var solid_instance = place_meeting(nx2, ny2, obj_movable_solid);
+		
+		var porta_id = instance_place(nx2, ny2, obj_door);
+        // Se existe uma porta na frente E ela está trancada...
+        if (porta_id != noone) {
+			if (porta_id.locked) {
+				break; // ...trate como uma parede e pare.
+			}
         }
+
+		if (solid_instance != noone) {
+		    // Colidimos com um objeto sólido. Vamos investigar...
+			if (variable_instance_exists(solid_instance, "in_tower")) { 
+			    if (solid_instance.in_tower == noone) {
+			        break;
+			    }
+			}
+		}
 
         // existe uma obj_box na frente no eixo Y?
         var box_id_y = instance_place(nx2, ny2, obj_box);
@@ -179,16 +221,16 @@ if (dy != 0) {
         }
 
         // se está carregando, verificar posição da caixa após mover
-        if (carrying != noone) {
-			if (carrying.object_index != obj_crystal || carrying.object_index != obj_datacore) {
-	            var attach2 = get_attach_pos(nx2, ny2, carry_side, carry_offset);
-				var blocked2 = would_collide_at(carrying, attach2.x, attach2.y);
+        //if (carrying != noone) {
+		//	if (carrying.object_index != obj_crystal || carrying.object_index != obj_datacore) {
+	    //        var attach2 = get_attach_pos(nx2, ny2, carry_side, carry_offset);
+		//		var blocked2 = would_collide_at(carrying, attach2.x, attach2.y);
 
-	            if (blocked2) {
-	                break;
-	            }
-			}
-        }
+	    //        if (blocked2) {
+	    //            break;
+	    //        }
+		//	}
+        //}
 
         // mover 1px
         y = ny2;
@@ -234,5 +276,8 @@ var wanted_depth = -foot_y;
 if (depth != wanted_depth) depth = wanted_depth;
 
 
+if (carrying != noone) {
+	carrying.depth = face != UP ? wanted_depth -1 : wanted_depth + 1;
+}
 
 

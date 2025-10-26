@@ -40,7 +40,7 @@ var can_interact = (player_ref != noone) && point_distance(x, y, player_ref.x, p
 //}
 
 // ========== Tecla R: abrir editor de texto (sempre que perto) ==========
-if (can_interact && keyboard_check_pressed(ord("R")) && !value_locked) {
+if (can_interact && keyboard_check_pressed(ord("R")) && !value_locked && !global.ui_blocked) {
     // evita abrir duas overlays ao mesmo tempo
     if (!instance_exists(obj_text_input)) {
         var o = instance_create_layer(0, 0, "GUI", obj_text_input);
@@ -69,3 +69,11 @@ if (!energized) {
 		effect_image_index = 0;
 	}
 }
+
+
+
+if (flash_timer > 0) {
+    flash_timer -= 1;
+    if (flash_timer < 0) flash_timer = 0;
+}
+

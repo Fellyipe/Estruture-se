@@ -42,3 +42,9 @@ var can_interact = (player_ref != noone) && point_distance(x, y, player_ref.x, p
 if !occupied {
 	image_index = 0;
 }
+
+
+if (flash_timer > 0) {
+    flash_timer -= 1;
+    if (flash_timer < 0) flash_timer = 0;
+}

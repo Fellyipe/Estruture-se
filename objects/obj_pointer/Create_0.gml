@@ -39,3 +39,8 @@ player_ref = noone;
 
 var foot_y = y + sprite_get_bbox_bottom(sprite_index) * image_yscale
 depth = -floor(foot_y);
+
+
+// flash visual (em frames)
+flash_timer = 0;
+flash_color = make_color_rgb(64,200,255);

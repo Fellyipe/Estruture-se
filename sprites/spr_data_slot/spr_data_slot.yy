@@ -23,7 +23,6 @@
   "height":48,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"381c8400-f64b-4557-9c5f-e17713fa64b2","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"381c8400-f64b-4557-9c5f-e17713fa64b2","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
     {"$GMImageLayer":"","%Name":"b7d4ad7b-f43a-463b-a58e-1b2e63a1d179","blendMode":0,"displayName":"default","isLocked":false,"name":"b7d4ad7b-f43a-463b-a58e-1b2e63a1d179","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_data_slot",

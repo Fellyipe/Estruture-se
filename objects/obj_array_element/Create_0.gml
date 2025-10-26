@@ -6,7 +6,7 @@
 
 
 slot_offset_x = 0;
-slot_offset_y = -12;
+slot_offset_y = 0;
 slot_x = x + slot_offset_x;
 slot_y = y + slot_offset_y;
 
@@ -38,3 +38,8 @@ player_ref = noone;
 
 var foot_y = y + sprite_get_bbox_bottom(sprite_index) * image_yscale
 depth = -floor(foot_y);
+
+
+
+flash_timer = 0;
+flash_color = make_color_rgb(64,200,255);

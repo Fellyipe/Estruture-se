@@ -5,6 +5,7 @@ if (carried_by != noone) {
     // opcional: ajustar depth para ficar sobre o player
     image_angle = 0;
 } else if (in_tower != noone) {
+	mask_index = noone;
     // se está encaixado na torre, fique no slot da torre
     if (instance_exists(in_tower)) {
         x = in_tower.slot_x;
@@ -15,7 +16,15 @@ if (carried_by != noone) {
     }
 }
 
+if (in_tower == noone) {
+	mask_index = spr_crystal
+}
+
 var foot_y = y + sprite_get_bbox_bottom(sprite_index) * image_yscale;
 foot_y = floor(foot_y);
 var wanted_depth = -foot_y;
 if (depth != wanted_depth) depth = wanted_depth;
+
+if (in_tower != noone) {
+	depth = in_tower.depth - 1;
+}

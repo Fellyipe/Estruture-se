@@ -52,8 +52,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_array",
-    "path":"sprites/spr_array/spr_array.yy",
+    "name":"spr_array_element",
+    "path":"sprites/spr_array_element/spr_array_element.yy",
   },
   "spriteMaskId":null,
   "visible":true,

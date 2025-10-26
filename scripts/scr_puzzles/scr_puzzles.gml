@@ -299,7 +299,7 @@ function check_sequence_array(target_list) {
             var want_payload = ds_map_find_value(want_entry, "payload");
             // pegar payload atual do elemento (adaptar conforme sua implementação)
             var actual_payload = "";
-            if (variable_instance_exists(elem, "payload") && elem.payload != null) actual_payload = string(elem.payload);
+            if (variable_instance_exists(elem, "payload") && elem.payload != "null") actual_payload = string(elem.payload);
             //else if (variable_instance_exists(elem, "datacore_inst") && elem.datacore_inst != noone && instance_exists(elem.datacore_inst)) {
             //    if (variable_instance_exists(elem.datacore_inst, "payload")) actual_payload = string(elem.datacore_inst.payload);
             //}
@@ -312,4 +312,24 @@ function check_sequence_array(target_list) {
         //}
     }
     return true;
+}
+
+
+
+
+
+
+function signal_target(target_key) {
+    if (is_undefined(target_key)) return;
+    var n = instance_number(obj_indicator);
+    for (var i = 0; i < n; ++i) {
+        var inst = instance_find(obj_indicator, i);
+        if (!instance_exists(inst)) continue;
+        if (!variable_instance_exists(inst, "target_key")) continue;
+        if (string(inst.target_key) == string(target_key)) {
+            // garante que exista flash_frames definido no indicador (fallback)
+            if (!variable_instance_exists(inst, "flash_frames")) inst.flash_frames = max(1, round(0.12 * 60));
+            inst.flash_timer = inst.flash_frames;
+        }
+    }
 }

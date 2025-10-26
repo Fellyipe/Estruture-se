@@ -1,1 +1,1 @@
-font_delete(global.fnt_oficial);
+font_delete(global.fnt_poster_24);

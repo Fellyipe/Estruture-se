@@ -61,6 +61,10 @@ function _drop_box() {
         carry_side = undefined;
         return true;
     }
+	
+	else {
+	 return false;
+	}
 
     // tenta posições alternativas (ex: atrás do player, esquerda, direita)
     var tries = [];
@@ -91,4 +95,28 @@ function _drop_box() {
     // não há lugar para soltar - pode dar feedback (som, shake)
     // show_message("Não há espaço para soltar!");
     return false;
+}
+
+// helper: função inline para checar se instância está "à frente" do player
+function _is_a_frente(inst) {
+    if (inst == noone) return false;
+    var d = point_distance(x, y, inst.x, inst.y);
+    if (d > pick_radius) return false;
+
+    var vx = inst.x - x;
+    var vy = inst.y - y;
+    var vm = point_distance(0,0,vx,vy);
+    if (vm == 0) return false;
+    vx /= vm; vy /= vm;
+
+    var fx = 0; var fy = 0;
+    switch(face) {
+        case RIGHT: fx = 1; fy = 0; break;
+        case LEFT:  fx = -1; fy = 0; break;
+        case UP:    fx = 0; fy = -1; break;
+        case DOWN:  fx = 0; fy = 1; break;
+    }
+    var dot = vx*fx + vy*fy;
+    var threshold = 0.65;
+    return dot >= threshold;
 }

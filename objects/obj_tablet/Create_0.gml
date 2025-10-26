@@ -9,12 +9,19 @@ input_cooldown = 0;
 input_cooldown_max = 8; // frames
 
 // Visual configuration
-label_font = fnt_alternative;
+label_font = fnt_secondary_18;
 label_color = c_white;
 bg_color = make_color_rgb(18,20,24);
 panel_color = make_color_rgb(28,34,40);
 tab_active_color = make_color_rgb(64,200,255);
 tab_inactive_color = make_color_rgb(120,130,140);
+
+
+animation_progress = 0;
+is_visible = true;
+animation_speed = 0.1;
+
+
 
 // Tabs (order matters)
 tabs = ["Conceitual", "Objetivos", "Controles", "Opções"];
@@ -170,6 +177,7 @@ function on_close_tablet() {
 		global.is_paused = tablet_open;
 		input_cooldown = input_cooldown_max;
 		conceptual_mode = "list";
+		animation_progress = 0;
 	}
 }
 

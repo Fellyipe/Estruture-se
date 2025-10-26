@@ -22,27 +22,20 @@ draw_set_valign(fa_bottom);
 draw_set_color(label_color);
 //draw_text(x, y - sprite_bottom_offset - 8, value);
 
-// desenha var_name
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-draw_set_color(c_black);
-draw_set_font(global.fnt_oficial);
-if(energized) draw_set_color(c_gray);
-draw_text_transformed(x, y + 16, var_name, 0.5, 0.5, 0);
-
-
-// dica de interação
-// var p2 = instance_nearest(x, y, obj_player);
-if (player_ref != noone && point_distance(x, y, player_ref.x, player_ref.y) <= prompt_distance) {
-    draw_set_valign(fa_top);
-    // mostra E para pegar/colocar e R para editar
-	
-	//if incoming_count == 1 draw_set_color(c_teal);
-    //draw_text(x, y - sprite_get_bbox_bottom(sprite_index) - 48,
-    //    "E: Pegar/Colocar     R: Editar valor");
-	//draw_set_color(label_color);
+if (value != "null" && energized) {
+	draw_sprite_ext(spr_effect_energized, effect_image_index, x, y -24, 1, 1, 0, c_white, 0.6);
 }
 
-if (value != "null" && energized) {
-	draw_sprite(spr_effect_energized, effect_image_index, x, y -24);
+
+// overlay de flash (simples)
+if (flash_timer > 0) {
+    var a = clamp(flash_timer / max(1, flash_timer), 0.2, 1); // valor usado para alpha (simples)
+    // desenha um retângulo sutil ao redor (ou troque por draw_sprite_ext)
+    draw_set_alpha(0.55);
+    draw_set_color(flash_color);
+    //var bbox = sprite_get_bbox(sprite_index);
+    // desenhar uma borda simples; ajustar tamanhos se quiser
+    draw_rectangle(x - 18, y - 18, x + 18, y + 18, false);
+    draw_set_alpha(1);
+    draw_set_color(c_white);
 }
