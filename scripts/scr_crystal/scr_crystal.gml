@@ -94,6 +94,7 @@ function place_crystal_on_tower(player_inst, tower_inst) {
 	// atualizar cristal: in_tower e tirar dos braços do player
 	with (_c) {
 	    in_tower = tower_inst;
+		in_tower_address = tower_inst.address;
 	    carried_by = noone;
 	    // posiciona exatamente no slot da torre, se existir
 	    if (variable_instance_exists(tower_inst, "slot_x") && variable_instance_exists(tower_inst, "slot_y")) {

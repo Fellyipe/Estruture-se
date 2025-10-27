@@ -15,6 +15,7 @@ face = DOWN;
 view_zoom = 1;
 view_max_zoom = 10;
 
+interaction_target = noone;
 
 
 /// Tenta pegar a caixa inst (assume inst existe e é obj_box_carry)
@@ -120,3 +121,6 @@ function _is_a_frente(inst) {
     var threshold = 0.65;
     return dot >= threshold;
 }
+
+// obj_player - Evento Create (modifique a função _is_a_frente)
+

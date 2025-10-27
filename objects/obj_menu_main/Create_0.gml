@@ -5,7 +5,7 @@ menu_label = "Menu Principal";
 menu_items = [
     { 
 		text: "▶ Iniciar Jogo",  
-		action: function() { room_goto(rm_puzzle_3_2); } 
+		action: function() { room_goto(rm_puzzle_3_1); } 
 	},
     { 
 		text: "⚙ Opções",        

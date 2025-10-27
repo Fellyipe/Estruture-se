@@ -21,3 +21,6 @@ var _pos_x = (_monitor_w - _janela_w) / 2; // Calcula o X para centralizar
 var _pos_y = 0;                            // Y = 0 é o topo do monitor
 
 window_set_position(_pos_x, _pos_y);
+
+//cursor_sprite = spr_datacore;
+//window_set_cursor(cr_none);

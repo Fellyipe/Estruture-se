@@ -102,7 +102,7 @@ draw_set_font(fnt_secondary_48);
 draw_set_halign(fa_center);
 draw_set_valign(fa_bottom);
 draw_set_color(make_color_rgb(160,160,160));
-draw_text(px + pw / 2, py + ph - 12, "E / Esc — Fechar");
+draw_text(px + pw / 2, py + ph - 12, "E / Esc - Fechar");
 
 draw_set_alpha(1);
 draw_set_color(c_white);

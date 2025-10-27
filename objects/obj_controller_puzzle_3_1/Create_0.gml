@@ -30,7 +30,6 @@ global.cur_day = "day_03_puzzle";
 
 on_complete = function() {
 	if (!global.puzzle_3_1_completed) {
-		show_message("Puzzle resolvido");
 		global.puzzle_3_1_completed = true;
 	}
 }

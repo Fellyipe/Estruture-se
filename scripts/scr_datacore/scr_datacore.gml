@@ -46,6 +46,11 @@ function place_datacore_on_tower(player_inst, tower_inst) {
 	// atualizar datacore: in_tower e tirar dos braços do player
 	with (_c) {
 	    in_tower = tower_inst;
+		if (variable_instance_exists(tower_inst, "node_label")) {
+			in_tower_node_label = tower_inst.node_label;
+		} else {
+			in_tower_tower_id = tower_inst.tower_id;
+		}
 	    carried_by = noone;
 	    // posiciona exatamente no slot da torre, se existir
 	    if (variable_instance_exists(tower_inst, "slot_x") && variable_instance_exists(tower_inst, "slot_y")) {
@@ -215,7 +220,7 @@ function find_slot_by_label(label) {
 	return noone;
 }
 
-/// retorna instância do obj_data_slot ou noone
+/// retorna instância do obj_array_element ou noone
 function find_element_by_tower_id(tower_id) {
 	var n = instance_number(obj_array_element);
 	for (var i = 0; i < n; ++i) {

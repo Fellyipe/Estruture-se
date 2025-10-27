@@ -458,6 +458,7 @@ function save_room_state_simple(room_name) {
             obj_id: (variable_instance_exists(d,"obj_id")?d.obj_id:""),
 //            payload: (variable_instance_exists(d,"payload")?d.payload:""),
 			in_tower_node_label: (variable_instance_exists(d,"in_tower_node_label")?d.in_tower_node_label:""),
+			in_tower_tower_id: (variable_instance_exists(d,"in_tower_tower_id")?d.in_tower_tower_id:""),
             x: d.x, y: d.y
         };
         array_push(room_rec.datacores, drec);
@@ -514,11 +515,15 @@ function apply_room_state_simple(room_name, rooms_struct = save_state.rooms) {
             } else {
                 // update payload
                 //if (variable_instance_exists(core, "payload")) core.payload = drec.payload;
-                core.x = drec.x; core.y = drec.y; core.in_tower_node_label = drec.in_tower_node_label;
+                core.x = drec.x; core.y = drec.y; core.in_tower_node_label = drec.in_tower_node_label; core.in_tower_tower_id = core.in_tower_tower_id;
 				
 				
 				if core.in_tower_node_label != "" {
 					var t_inst = find_slot_by_label(core.in_tower_node_label)
+					if t_inst != noone place_datacore_on_tower2(core, t_inst)
+				}
+				if core.in_tower_tower_id != "" {
+					var t_inst = find_element_by_tower_id(core.in_tower_tower_id)
 					if t_inst != noone place_datacore_on_tower2(core, t_inst)
 				}
             }

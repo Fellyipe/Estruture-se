@@ -34,6 +34,7 @@
         "\"sprite\"",
         "\"addresses\"",
       ],"multiselect":false,"name":"mode","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"sprite\"","varType":6,},
+    {"$GMObjectProperty":"v1","%Name":"gui_sprite","filters":[],"listItems":[],"multiselect":false,"name":"gui_sprite","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"spr_empty_poster","path":"sprites/spr_empty_poster/spr_empty_poster.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_empty_poster","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

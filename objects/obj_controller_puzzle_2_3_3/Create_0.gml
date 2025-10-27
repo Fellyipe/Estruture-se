@@ -1,31 +1,31 @@
 event_inherited();
 
-head_pointer = find_pointer_by_address("0x6666");
+head_pointer = find_pointer_by_address("0x280e");
 
 solution_list = ds_list_create();
 
 var m = ds_map_create();
-ds_map_add(m, "address", "0x6666");
+ds_map_add(m, "address", "0x280e");
 ds_map_add(m, "payload", "a1");
 ds_list_add(solution_list, m);
 
 m = ds_map_create();
-ds_map_add(m, "address", "0x7777");
+ds_map_add(m, "address", "0xf83f");
 ds_map_add(m, "payload", "b2");
 ds_list_add(solution_list, m);
 
 m = ds_map_create();
-ds_map_add(m, "address", "0x8888");
+ds_map_add(m, "address", "0xc1dc");
 ds_map_add(m, "payload", "c3");
 ds_list_add(solution_list, m);
 
 m = ds_map_create();
-ds_map_add(m, "address", "0x9999");
+ds_map_add(m, "address", "0xef98");
 ds_map_add(m, "payload", "d4");
 ds_list_add(solution_list, m);
 
 m = ds_map_create();
-ds_map_add(m, "address", "0x5555");
+ds_map_add(m, "address", "0xd0d7");
 ds_map_add(m, "payload", "null");
 ds_list_add(solution_list, m);
 
@@ -35,7 +35,6 @@ global.puzzle_2_3_3_completed = false;
 
 on_complete = function() {
 	if(!global.puzzle_2_3_3_completed) {
-		show_message("Puzzle resolvido");
 		global.puzzle_2_3_3_completed = true;
 	}
 };

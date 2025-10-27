@@ -18,3 +18,7 @@ draw_set_color(label_color);
 //draw_set_color(c_black);
 //if(occupied) draw_set_color(c_gray);
 //draw_text_transformed(x, y, var_name, 0.5, 0.5, 0);
+
+if(locked) {
+	draw_sprite(spr_blocked, 0, x, y + 12)
+} 

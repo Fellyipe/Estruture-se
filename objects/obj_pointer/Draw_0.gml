@@ -39,3 +39,10 @@ if (flash_timer > 0) {
     draw_set_alpha(1);
     draw_set_color(c_white);
 }
+
+
+if(value_locked) {
+	draw_sprite(spr_blocked, 0, x, y + 13)
+} else if(locked) {
+	draw_sprite(spr_blocked, 1, x, y + 13)
+} 

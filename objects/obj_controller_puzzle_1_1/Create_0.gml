@@ -10,7 +10,7 @@ global.puzzle_1_1_completed = false;
 
 on_complete = function() {
 	if (!global.puzzle_1_1_completed) {
-		show_message("Puzzle resolvido");
+		audio_play_sound(snd_puzzle_solved, 0, false, 1, 0, 1);
 		global.puzzle_1_1_completed = true;
 	}
 };

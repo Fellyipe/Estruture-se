@@ -9,7 +9,6 @@ allow_close_with_esc = true;
 
 addresses_list = [];
 
-gui_sprite = spr_empty_poster;
 scale = 0.82;
 
 // --- Controle de Animação e Estado ---
