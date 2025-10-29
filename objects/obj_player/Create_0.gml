@@ -1,8 +1,18 @@
-//speed = 3.0;            // pixels por frame (ajuste conforme necessário)
-//use_delta = false;      // deixe false se usar room_speed fixo; true para delta_time approach
+move_speed = 2.5;
+//move_speed = 2.5;
+use_delta = false;
+vx = 0;
+vy = 0;
 
-//vx = 0;
-//vy = 0;
+carrying = noone;
+carry_side = DOWN;
+carry_offset = 20;
+carry_speed_factor = 0.98;
+
+pick_radius = 40;
+
+// ISSO SERVE PARA FUNÇÕES DE PEGAR CRISTAL E DATACORE DE TORRES. NÃO MEXER!
+carrying_crystal = noone;
 
 
 sprite[RIGHT] = spr_player_right_work;
@@ -29,7 +39,7 @@ function _pickup_box(inst) {
     // verifica se o local de attach está livre (colisão com parede/outros)
     var attach = get_attach_pos(x, y, carry_side, carry_offset);
     // chamamos place_meeting no contexto da caixa (usa sua máscara)
-    var blocked = would_collide_at(inst, attach.x, attach.y);
+    var blocked = would_collide_at(inst, attach.x, attach.y, true);
 
 
     if (blocked) {
@@ -99,17 +109,46 @@ function _drop_box() {
 }
 
 // helper: função inline para checar se instância está "à frente" do player
+//function _is_a_frente(inst) {
+//    if (inst == noone) return false;
+//    var d = point_distance(x, y, inst.x, inst.y);
+//    if (d > pick_radius) return false;
+
+//    var vx = inst.x - x;
+//    var vy = inst.y - y;
+//    var vm = point_distance(0,0,vx,vy);
+//    if (vm == 0) return false;
+//    vx /= vm; vy /= vm;
+
+//    var fx = 0; var fy = 0;
+//    switch(face) {
+//        case RIGHT: fx = 1; fy = 0; break;
+//        case LEFT:  fx = -1; fy = 0; break;
+//        case UP:    fx = 0; fy = -1; break;
+//        case DOWN:  fx = 0; fy = 1; break;
+//    }
+//    var dot = vx*fx + vy*fy;
+//    var threshold = 0.65;
+//    return dot >= threshold;
+//}
+
 function _is_a_frente(inst) {
     if (inst == noone) return false;
     var d = point_distance(x, y, inst.x, inst.y);
     if (d > pick_radius) return false;
 
+    // SE estiver muito perto, considere "à frente" automaticamente
+    var CLOSE_DIST = 18; // 18 px = muito perto, pega independente do ângulo
+    if (d <= CLOSE_DIST) return true;
+
+    // normaliza vetor para o alvo
     var vx = inst.x - x;
     var vy = inst.y - y;
     var vm = point_distance(0,0,vx,vy);
     if (vm == 0) return false;
     vx /= vm; vy /= vm;
 
+    // vetor da face do jogador
     var fx = 0; var fy = 0;
     switch(face) {
         case RIGHT: fx = 1; fy = 0; break;
@@ -117,10 +156,14 @@ function _is_a_frente(inst) {
         case UP:    fx = 0; fy = -1; break;
         case DOWN:  fx = 0; fy = 1; break;
     }
+
     var dot = vx*fx + vy*fy;
-    var threshold = 0.65;
+
+    // threshold menos rígido para permitir pegar objetos ligeiramente de lado
+    var threshold = 0.40; // antes era 0.65; reduzimos para 0.40 (mais permissivo)
     return dot >= threshold;
 }
+
 
 // obj_player - Evento Create (modifique a função _is_a_frente)
 

@@ -14,3 +14,6 @@ on_complete = function() {
 		global.puzzle_1_1_completed = true;
 	}
 };
+
+concept_unlock("day1_pointer_crystal");
+concept_unlock("day1_room1_instructions");

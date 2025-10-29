@@ -4,11 +4,13 @@ menu_label = "Menu Principal";
 
 menu_items = [
     { 
-		text: "▶ Iniciar Jogo",  
-		action: function() { room_goto(rm_puzzle_3_1); } 
+		///text: "▶ Iniciar Jogo",  
+		text: "Iniciar Jogo",  
+		action: function() { room_goto(rm_lobby); } 
 	},
     { 
-		text: "⚙ Opções",        
+		//text: "⚙ Opções",        
+		text: "Opções",        
 		action: function() { 
 				if (instance_exists(obj_menu_options)) {
 				    // se já existir, só reativa
@@ -21,22 +23,23 @@ menu_items = [
 				}
 			} 
 	},
+    //{ 
+	//	text: "? Tutorial",      
+	//	action: function() { 
+	//			if (instance_exists(obj_menu_tutorial)) {
+	//			    // se já existir, só reativa
+	//			    instance_activate_object(obj_menu_tutorial);
+	//				instance_deactivate_object(obj_menu_main);
+	//			} else {
+	//			    // senão, cria e já garante que o menu base fique dormindo
+	//			    instance_deactivate_object(obj_menu_main);
+	//			    var o = instance_create_layer(0, 0, "GUI", obj_menu_tutorial);
+	//			}
+	//		} 
+	//},
     { 
-		text: "? Tutorial",      
-		action: function() { 
-				if (instance_exists(obj_menu_tutorial)) {
-				    // se já existir, só reativa
-				    instance_activate_object(obj_menu_tutorial);
-					instance_deactivate_object(obj_menu_main);
-				} else {
-				    // senão, cria e já garante que o menu base fique dormindo
-				    instance_deactivate_object(obj_menu_main);
-				    var o = instance_create_layer(0, 0, "GUI", obj_menu_tutorial);
-				}
-			} 
-	},
-    { 
-		text: "⋯ créditos",      
+		//text: "⋯ créditos",      
+		text: "Créditos",      
 		action: function() { 
 				if (instance_exists(obj_menu_credits)) {
 				    // se já existir, só reativa
@@ -50,7 +53,8 @@ menu_items = [
 			} 
 	},
     { 
-		text: "✖ Sair",          
+		//text: "✖ Sair",          
+		text: "Sair",          
 		action: function() { game_end(); } 
 	}
 ];

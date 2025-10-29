@@ -1,7 +1,8 @@
 global.pause_count = 0;
 global.is_paused = false;
 global.ui_blocked = false;
-global.cur_day = "day_00";
+global.cur_day = "day_01";
+global.popup_called = false;
 
 global.fnt_poster_24 = font_add("Daydream DEMO.otf", 24, false, false, 32, 128);
 

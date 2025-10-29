@@ -3,6 +3,7 @@
 // pulso
 pulse_timer += 1;
 var pulse = 1 + 0.03 * sin(pulse_timer * pulse_speed);
+var pulse_alpha = 0.85 + 0.15 * sin(pulse_timer * pulse_speed);
 
 // Condições para remover/consumir a notificação:
 // 1) jogador abriu o tablet na mesma sala
@@ -43,6 +44,6 @@ if (tablet_open && spawn_room != room_get_name(room)) {
 }
 
 // atualiza alpha / scale para draw
-image_alpha = alpha;
-image_xscale = pulse;
-image_yscale = pulse;
+image_alpha = pulse_alpha; // O alpha agora recebe o valor do pulso
+image_xscale = 1;          // A escala fica constante
+image_yscale = 1;

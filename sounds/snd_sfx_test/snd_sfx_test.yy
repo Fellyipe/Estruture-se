@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":0,
-  "duration":0.26122448,
+  "duration":0.08106576,
   "name":"snd_sfx_test",
   "parent":{
     "name":"Sons",

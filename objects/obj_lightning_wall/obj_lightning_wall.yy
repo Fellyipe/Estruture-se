@@ -1,9 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_shock_wall",
-  "eventList":[],
+  "%Name":"obj_lightning_wall",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_shock_wall",
+  "name":"obj_lightning_wall",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos de Mecânicas",
@@ -33,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_shock_wall",
-    "path":"sprites/spr_shock_wall/spr_shock_wall.yy",
+    "name":"spr_lightning_wall",
+    "path":"sprites/spr_lightning_wall/spr_lightning_wall.yy",
   },
   "spriteMaskId":null,
   "visible":true,

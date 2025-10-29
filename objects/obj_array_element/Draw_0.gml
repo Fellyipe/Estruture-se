@@ -1,30 +1,9 @@
-draw_self();
+//draw_self();
 
-
-// desenha value e dicas
-draw_set_font(label_font);
-draw_set_halign(fa_center);
-draw_set_valign(fa_bottom);
-draw_set_color(label_color);
-//draw_text(x, y - sprite_bottom_offset - 8, payload);
-
-
-// dica de interação
-// var p2 = instance_nearest(x, y, obj_player);
-
-// desenha var_name
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-draw_set_color(c_black);
-if(occupied) draw_set_color(c_gray);
-draw_text_transformed(x, y, var_name, 0.5, 0.5, 0);
-
-
-
-if (flash_timer > 0) {
-    draw_set_alpha(0.6);
-    draw_set_color(flash_color);
-    draw_rectangle(x - 16, y - 16, x + 16, y + 16, false);
-    draw_set_alpha(1);
-    draw_set_color(c_white);
+/// Draw - obj_crystal (exemplo)
+if (is_highlighted) {
+    // desenha primeiro uma versão tint levemente
+    draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, make_color_rgb(120,200,255), 0.65);
 }
+// depois desenha o sprite normal
+draw_self();

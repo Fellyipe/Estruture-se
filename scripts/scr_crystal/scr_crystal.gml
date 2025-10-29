@@ -1,61 +1,3 @@
-//function place_crystal_on_tower(player_inst, tower_id) {
-	
-//	if (!instance_exists(player_inst) || !instance_exists(tower_id)) return false;
-//	if (!variable_instance_exists(player_inst, "carrying_crystal") || player_inst.carrying_crystal == noone) return false;
-//	var _cr = player_inst.carrying_crystal;
-
-//	// Checa ocupação
-//	if (tower_id.crystal_inst != noone) {
-//	    audio_play_sound(snd_error,1,false);
-//	    return false;
-//	}
-
-//	// encaixa: tower deve ter script place_crystal ou fazemos aqui
-//	with (tower_id) {
-//	    crystal_inst = _cr;
-//	    occupied = true;
-//	}
-//	with (_cr) {
-//	    carrier = noone;
-//	    in_tower = tower_id; // guarda referência da torre
-//	}
-//	// atualiza player
-//	player_inst.carrying_crystal = noone;
-//	//audio_play_sound(snd_place,1,false);
-//	return true;
-//}
-
-
-
-
-//function take_from_tower(tower_id, player_inst) {
-	
-//	if (!instance_exists(tower_id) || !instance_exists(player_inst)) return false;
-//	if (tower_id.crystal_inst == noone) return false;
-//	if (variable_instance_exists(player_inst, "carrying_crystal") && player_inst.carrying_crystal != noone) return false; // já carrega
-
-//	var _c = tower_id.crystal_inst;
-//	// remove do tower
-//	with (tower_id) {
-//	    crystal_inst = noone;
-//	    occupied = false;
-//	}
-//	// dá ao player
-//	with (_c) {
-//	    carrier = player_inst;
-//	    in_tower = noone;
-//	}
-//	// set no player
-//	player_inst.carrying_crystal = _c;
-//	//audio_play_sound(snd_pickup,1,false);
-//	return true;
-//}
-
-
-
-
-
-
 /// Coloca o cristal que o player carrega na torre (se houver espaço).
 /// Retorna true se encaixou, false caso contrário.
 function place_crystal_on_tower(player_inst, tower_inst) {
@@ -96,6 +38,7 @@ function place_crystal_on_tower(player_inst, tower_inst) {
 	    in_tower = tower_inst;
 		in_tower_address = tower_inst.address;
 	    carried_by = noone;
+		can_be_picked = false;
 	    // posiciona exatamente no slot da torre, se existir
 	    if (variable_instance_exists(tower_inst, "slot_x") && variable_instance_exists(tower_inst, "slot_y")) {
 	        x = tower_inst.slot_x;
@@ -143,6 +86,7 @@ function place_crystal_on_tower2(c_inst, tower_inst) {
 	with (c_inst) {
 	    in_tower = tower_inst;
 	    carried_by = noone;
+		can_be_picked = false;
 	    // posiciona exatamente no slot da torre, se existir
 	    if (variable_instance_exists(tower_inst, "slot_x") && variable_instance_exists(tower_inst, "slot_y")) {
 	        x = tower_inst.slot_x;
@@ -201,6 +145,7 @@ function take_from_tower(tower_inst, player_inst) {
 	// atualizar cristal: tirar de in_tower e marcar como carregado
 	with (_c) {
 	    in_tower = noone;
+		can_be_picked = true;
 	    carried_by = player_inst; // set para a instância do player
 	}
 

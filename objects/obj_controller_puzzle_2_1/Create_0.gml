@@ -22,7 +22,7 @@ ds_list_add(solution_list, m);
 owns_solution_maps = true;
 
 global.puzzle_2_1_completed = false;
-global.cur_day = "day_02_puzzle";
+//global.cur_day = "day_02_puzzle";
 
 on_complete = function() {
 	if (!global.puzzle_2_1_completed) {

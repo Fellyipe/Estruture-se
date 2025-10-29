@@ -39,7 +39,7 @@ function get_attach_pos(_px, _py, _side, _offset) {
 /// Retorna true se a instância 'inst', posicionada com centro em (tx,ty),
 /// colidiria com obj_wall ou com outra obj_box_carry (exclui a própria inst).
 /// Uso: var blocked = scr_would_collide_at(carrying, attach.x, attach.y);
-function would_collide_at(inst, tx, ty) {
+function would_collide_at(inst, tx, ty, ignore_tables=false) {
 
 	// segurança: se inst inválida, consideramos bloqueado (ou escolha false se preferir)
 	if (!instance_exists(inst)) return true;
@@ -63,18 +63,21 @@ function would_collide_at(inst, tx, ty) {
 	var right  = tx + _w*0.5;
 	var bottom = ty + _h*0.5;
 
-	// 1) checar paredes dentro desse rect
-	// collision_rectangle retorna uma instância encontrada (ou noone)
-	var found_wall = collision_rectangle(left, top, right, bottom, obj_wall, true, true);
-	if (found_wall != noone) return true;
-
-	// 2) checar outras caixas do tipo obj_box_carry
-	var found_box = collision_rectangle(left, top, right, bottom, obj_box_carry, true, true);
-	if (found_box != noone && found_box != inst) return true;
-
-	// 3) se também quiser checar obj_box (empurráveis), descomente:
-	var found_box2 = collision_rectangle(left, top, right, bottom, obj_box, true, true);
-	if (found_box2 != noone && found_box2 != inst) return true;
+	// --- 1) checar paredes/solidos (obj_wall), mas tratar obj_table se necessário ---
+    var found_wall = collision_rectangle(left, top, right, bottom, obj_wall, true, true);
+    if (found_wall != noone) {
+        if (ignore_tables) {
+            // se a inst encontrada for (ou herdar) de obj_table, IGNORAR esta colisão
+            var oi = found_wall.object_index;
+            var is_table = false;
+            // percorre a cadeia de parents para detectar herança
+            if (oi == obj_table) is_table = true;
+            if (!is_table) return true; // colisão com wall que NÃO é table -> bloqueado
+            // se is_table==true -> ignora e continua checagens abaixo
+        } else {
+            return true; // colisão com wall e não estamos ignorando mesas -> bloqueado
+        }
+    }
 
 	var found_crystal = collision_rectangle(left, top, right, bottom, obj_crystal, true, true);
 	if (found_crystal != noone && found_crystal != inst) return true;
@@ -88,3 +91,6 @@ function would_collide_at(inst, tx, ty) {
 	// nada encontrado — não está bloqueado
 	return false;
 }
+
+
+

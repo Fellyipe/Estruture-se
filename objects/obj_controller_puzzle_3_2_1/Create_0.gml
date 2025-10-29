@@ -35,7 +35,7 @@ function on_complete() {
 	}
 }
 
-concept_unlock("concept.arrays2");
+//concept_unlock("concept.arrays2");
 
 //// no controller da sala, ao fechar/ir ao lobby:
 //with (global.save_manager) {

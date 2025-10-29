@@ -25,8 +25,6 @@
     {"name":"inst_5733AC0C","path":"rooms/rm_puzzle_1_1/rm_puzzle_1_1.yy",},
     {"name":"inst_7D9CCCBB","path":"rooms/rm_puzzle_1_1/rm_puzzle_1_1.yy",},
     {"name":"inst_621F7A64","path":"rooms/rm_puzzle_1_1/rm_puzzle_1_1.yy",},
-    {"name":"inst_80BB476","path":"rooms/rm_puzzle_1_1/rm_puzzle_1_1.yy",},
-    {"name":"inst_7B24B0EC","path":"rooms/rm_puzzle_1_1/rm_puzzle_1_1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -89,12 +87,6 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"required_global_flag","path":"objects/obj_door/obj_door.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"puzzle_1_1_completed",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":514.0,"y":141.0,},
         {"$GMRInstance":"v2","%Name":"inst_621F7A64","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_621F7A64","objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":192.0,"y":160.0,},
-        {"$GMRInstance":"v2","%Name":"inst_80BB476","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_80BB476","objectId":{"name":"obj_crystal","path":"objects/obj_crystal/obj_crystal.yy",},"properties":[
-            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_crystal","path":"objects/obj_crystal/obj_crystal.yy",},"propertyId":{"name":"obj_id","path":"objects/obj_crystal/obj_crystal.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"C_03",},
-          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":352.0,"y":128.0,},
-        {"$GMRInstance":"v2","%Name":"inst_7B24B0EC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7B24B0EC","objectId":{"name":"obj_crystal","path":"objects/obj_crystal/obj_crystal.yy",},"properties":[
-            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_crystal","path":"objects/obj_crystal/obj_crystal.yy",},"propertyId":{"name":"obj_id","path":"objects/obj_crystal/obj_crystal.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"c_04",},
-          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":416.0,"y":128.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Assets_1","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_1C169491","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":34.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_1C169491","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_letters","path":"sprites/spr_letters/spr_letters.yy",},"x":385.0,"y":222.0,},

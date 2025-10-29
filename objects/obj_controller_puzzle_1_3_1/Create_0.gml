@@ -17,16 +17,16 @@ on_complete = function() {
 		audio_play_sound(snd_puzzle_solved, 0, false, 1, 0, 1);
 		global.puzzle_1_3_1_completed = true;
 	}
-	with(obj_shock_wall) {
+	with(obj_lightning_wall) {
 		if obj_id = "puzzle_wall"{ 
-			x = 358;
-			y = -10;
+			x = 353;
+			y = 45;
 		}
 	}
 };
 
 on_descomplete = function() {
-	with(obj_shock_wall) {
+	with(obj_lightning_wall) {
 		if obj_id = "puzzle_wall" {
 			x = 15000;
 			y = 15000;

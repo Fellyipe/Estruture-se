@@ -11,8 +11,8 @@
   "name":"obj_teleport_scene",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos de Mecânicas",
-    "path":"folders/Objetos/Objetos de Mecânicas.yy",
+    "name":"Objetos Basilares",
+    "path":"folders/Objetos/Objetos Basilares.yy",
   },
   "parentObjectId":{
     "name":"obj_pauser",

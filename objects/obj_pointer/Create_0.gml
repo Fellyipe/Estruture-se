@@ -6,6 +6,11 @@ slot_y = y + slot_offset_y;
 effect_current_time = 0; 
 effect_image_index = 0;
 
+
+is_highlighted = false;
+can_be_picked = false;
+
+
 //value = "null";
 //prompt_distance = 48;
 //label_font = fnt_menu;
@@ -44,3 +49,8 @@ depth = -floor(foot_y);
 // flash visual (em frames)
 flash_timer = 0;
 flash_color = make_color_rgb(64,200,255);
+
+actual_sprite = spr_pointer;
+if (is_super) {
+	actual_sprite = spr_pointer_super;
+}

@@ -20,6 +20,9 @@ slot_y = y + slot_offset_y;
 //locked = false;
 //node_label = "";
 
+is_highlighted = false;
+can_be_picked = false;
+
 
 if (sprite_exists(sprite_index)) {
     sprite_bottom_offset = sprite_get_bbox_bottom(sprite_index);
@@ -27,7 +30,14 @@ if (sprite_exists(sprite_index)) {
     sprite_bottom_offset = 12; // fallback
 }
 
+if is_super sprite_index = spr_data_slot;
+
 player_ref = noone;
 
 var foot_y = y + sprite_get_bbox_bottom(sprite_index) * image_yscale
 depth = -floor(foot_y);
+
+actual_sprite = spr_data_slot;
+if (is_super) {
+	actual_sprite = spr_data_slot_super;
+}

@@ -1,8 +1,3 @@
-
-
-
-
-
 /// Coloca o datacore que o player carrega na torre (se houver espaço).
 /// Retorna true se encaixou, false caso contrário.
 function place_datacore_on_tower(player_inst, tower_inst) {
@@ -52,6 +47,7 @@ function place_datacore_on_tower(player_inst, tower_inst) {
 			in_tower_tower_id = tower_inst.tower_id;
 		}
 	    carried_by = noone;
+		can_be_picked = false;
 	    // posiciona exatamente no slot da torre, se existir
 	    if (variable_instance_exists(tower_inst, "slot_x") && variable_instance_exists(tower_inst, "slot_y")) {
 	        x = tower_inst.slot_x;
@@ -109,6 +105,7 @@ function place_datacore_on_tower2(dc_inst, tower_inst) {
 	with (dc_inst) {
 	    in_tower = tower_inst;
 	    carried_by = noone;
+		can_be_picked = false;
 	    // posiciona exatamente no slot da torre, se existir
 	    if (variable_instance_exists(tower_inst, "slot_x") && variable_instance_exists(tower_inst, "slot_y")) {
 	        x = tower_inst.slot_x;
@@ -169,6 +166,7 @@ function take_datacore_from_tower(tower_inst, player_inst) {
 	with (_c) {
 	    in_tower = noone;
 	    carried_by = player_inst; // set para a instância do player
+		can_be_picked = true;
 	}
 
 	// atualizar player: set carrying, set carry_side baseado na face atual

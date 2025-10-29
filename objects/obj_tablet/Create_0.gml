@@ -22,9 +22,14 @@ is_visible = true;
 animation_speed = 0.1;
 
 
+scribble_font_set_default("fnt_secondary_18");
+//scribble_c
+scribble_element = scribble("...");       // Irá guardar o objeto de texto do Scribble
+current_text_cache = "";        // Irá guardar a string atual para comparação
+
 
 // Tabs (order matters)
-tabs = ["Conceitual", "Objetivos", "Controles", "Opções"];
+tabs = ["Conceitual", "Objetivos", "Opções"];
 
 // Placeholder content arrays for each tab (simple strings). Replace these with your real content later
 //content_conceitual = [];
@@ -32,11 +37,6 @@ content_objetivos = [
 	"Ligar A -> G -> J -> N -> T",
 	"Evitar sobrecarga das torres",
 	"Retornar ao hub e completar relatório"
-];
-content_controles = [
-	"E: Pegar/Colocar",
-	"R: Editar endereço do ponteiro",
-	"Tab: Abrir/fechar tablet"
 ];
 content_opcoes = [
 	"Salvar jogo (slot 1)",
@@ -184,4 +184,4 @@ function on_close_tablet() {
 
 
 // Just to centralize contents for easier indexing later
-contents = [conceptual_items, content_objetivos, content_controles, content_opcoes];
+contents = [conceptual_items, content_objetivos, content_opcoes];

@@ -49,6 +49,24 @@ function show_popup(msg, seconds = 3, fade_seconds = 0.4) {
     return inst;
 }
 
+function show_popup_new_day(msg, seconds = 3, fade_seconds = 0.4) {
+    
+    // Cria a instância na camada GUI (ou uma camada padrão)
+    var lay_name = "GUI";
+    if (!layer_exists(lay_name)) {
+        lay_name = "Instances"; // Camada de fallback
+    }
+    
+    var inst = instance_create_layer(0, 0, lay_name, obj_popup_new_day);
+
+    // Configura as variáveis de tempo diretamente na instância
+    inst.text = string(msg);
+    inst.visible_duration_seconds = seconds;
+    inst.fade_duration_seconds = fade_seconds;
+    
+    return inst;
+}
+
 // <!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!>
 
 /// id   -> string id do conceito (ex: "concept.pointers")
@@ -63,6 +81,6 @@ function show_concept_notify() {
 	var lay = "GUI";
 	if (!layer_exists(lay)) lay = layer_get_id("Instances"); // fallback
 	var inst = instance_create_layer(0, 0, lay, obj_notification);
-	inst.spawn_room = room_get_name(room);
+	//inst.spawn_room = room_get_name(room);
 	return inst;
 }

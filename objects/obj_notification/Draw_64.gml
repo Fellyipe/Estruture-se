@@ -14,8 +14,8 @@ var spr_h = sprite_get_height(sprite_to_draw) * image_yscale;
 
 // >> MUDANÇA: Calcula a posição X e Y para o canto inferior esquerdo
 // A lógica assume que a origem do seu sprite está no CENTRO
-var _x = padding + (spr_w / 2);
-var _y = sh - 2 * padding - (spr_h / 2);
+var _x = sw - 2 * (padding + (spr_w / 2));
+var _y = 2 * padding;
 
 // desenho do sprite (se sprite definido)
 if (sprite_to_draw != noone) {

@@ -16,7 +16,7 @@ global.puzzle_2_3_2_completed = false;
 
 on_complete = function() {
 	if (!global.puzzle_2_3_2_completed) {
-		show_message("Ambos os puzzles estão resolvidos");
+		//show_message("Ambos os puzzles estão resolvidos");
 		global.puzzle_2_3_2_completed = true;
 	}
 }

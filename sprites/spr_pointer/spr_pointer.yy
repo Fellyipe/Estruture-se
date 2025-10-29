@@ -23,6 +23,8 @@
   "height":43,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"b5c9e87f-9e6a-4299-8416-ff6500596583","blendMode":0,"displayName":"Layer 1 (2)","isLocked":false,"name":"b5c9e87f-9e6a-4299-8416-ff6500596583","opacity":60.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
+    {"$GMImageLayer":"","%Name":"7639c904-7fce-45b5-8283-5ab29b72b679","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"7639c904-7fce-45b5-8283-5ab29b72b679","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
     {"$GMImageLayer":"","%Name":"329f52b6-5ac9-449d-a345-eda56c1cc7ec","blendMode":0,"displayName":"default","isLocked":false,"name":"329f52b6-5ac9-449d-a345-eda56c1cc7ec","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_pointer",

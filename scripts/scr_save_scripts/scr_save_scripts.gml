@@ -233,10 +233,24 @@ function ensure_player_not_carrying_for_save() {
                     case DOWN:  ny += off; break;
                 }
                 with (carried) {
+					var rn = room_get_name(room);
+					var room_init = obj_save_manager.save_state.rooms_initial[$ rn];
+					
+					var crs = room_init.crystals;
+	                for (var ci = 0; ci < array_length(crs); ++ci) {
+						var crec = crs[ci];
+						if (is_undefined(crec.obj_id)) continue;
+						
+						if (variable_instance_exists(id, "obj_id") && string(crec.obj_id) == string(obj_id)) {
+	                        if (!is_undefined(crec.x) && !is_undefined(crec.y)) {
+	                            x = crec.x;
+	                            y = crec.y;
+	                        }
+	                        break;
+	                    }
+					}
                     carried_by = noone;
                     in_tower = noone;
-                    x = other.nx;
-                    y = other.ny;
                 }
                 carrying = noone;
             } else {

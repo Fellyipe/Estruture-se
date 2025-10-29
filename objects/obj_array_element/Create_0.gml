@@ -27,6 +27,9 @@ slot_y = y + slot_offset_y;
 //locked = false;
 //node_label = "";
 
+is_highlighted = false;
+can_be_picked = false;
+
 
 if (sprite_exists(sprite_index)) {
     sprite_bottom_offset = sprite_get_bbox_bottom(sprite_index);

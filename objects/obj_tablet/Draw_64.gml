@@ -453,7 +453,7 @@ if (tabs[current_tab] == "Conceitual") {
         var ly = list_y + i * line_h;
         if (mode == "content" && conceptual_mode == "list" && i == content_cursor) {
             // Destaque da lista com sprite 9-slice
-            draw_sprite_stretched(spr_highlight_9slice, 0, list_x - 8, ly - 4, list_w, line_h);
+            draw_sprite_stretched(spr_highlight_9slice, 0, list_x - 8, ly, list_w, line_h);
             draw_set_color(label_color);
         } else {
             draw_set_color(inactive_text_color);
@@ -472,10 +472,38 @@ if (tabs[current_tab] == "Conceitual") {
         var body_y = read_y + 36;
         var line_sep = string_height("M") + 8;
         var wrap_w = read_w - padding;
-        draw_text_ext(read_x, body_y, page_text, line_sep, wrap_w);
+		
+		if (page_text != current_text_cache) {
+	        // Se mudou, atualizamos o cache
+	        current_text_cache = page_text;
+        
+	        // E criamos um NOVO elemento Scribble com o texto atual
+	        scribble_element = scribble(page_text);
+        
+	        // AQUI você define o espaçamento entre linhas e outras propriedades!
+	        // O valor é em pixels. O padrão é 0.
+	        // Um valor de 8, por exemplo, adiciona 8 pixels de espaço extra.
+	        //scribble_element.set_line_height(8, true); // O 'true' significa que o valor é em pixels
+			
+	        // Você também pode definir a largura máxima (wrap) aqui
+	        
+			//scribble_element.line_spacing("200%");
+			scribble_element.wrap(wrap_w);
+			scribble_element.line_spacing("125%");
+			scribble_element.starting_format("fnt_secondary_18", #C7D4E1)
+			
+
+	    }
+		
+        //draw_text_ext(read_x, body_y, page_text, line_sep, wrap_w);
+        //draw_text_scribble_ext(read_x, body_y, page_text, wrap_w);
+		if (scribble_element != noone) {
+	        scribble_element.draw(read_x, body_y);
+	    }
+		
         draw_set_halign(fa_right);
         draw_set_color(inactive_text_color);
-        draw_text(screen_px + screen_pw - padding, screen_py + screen_ph - padding, string(conceptual_page + 1) + " / " + string(array_length(cur_concept.pages)));
+        draw_text(screen_px + screen_pw - padding, screen_py + screen_ph - 4 * padding, string(conceptual_page + 1) + " / " + string(array_length(cur_concept.pages)));
     }
 
 } else if (tabs[current_tab] == "Objetivos") {
@@ -502,7 +530,7 @@ if (tabs[current_tab] == "Conceitual") {
         var checkbox_y = ly + (line_h / 2); // Centraliza o sprite verticalmente na linha
 		//var fnt_oficial = global.fnt_oficial;
 		
-		scribble_font_set_default("fnt_official_18");
+		scribble_font_set_default("fnt_secondary_18");
 		if done draw_text_scribble(checkbox_x, checkbox_y, "[fa_middle][spr_checkbox, 0]  " + it.label) else draw_text_scribble(checkbox_x, checkbox_y, "[fa_middle][spr_checkbox, 1]  " + it.label);
         
         

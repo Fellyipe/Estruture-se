@@ -13,7 +13,6 @@
     {"name":"inst_6276F865_1_1_1_1","path":"rooms/rm_puzzle_3_3/rm_puzzle_3_3.yy",},
     {"name":"inst_2E3C4786_1_1_1_1","path":"rooms/rm_puzzle_3_3/rm_puzzle_3_3.yy",},
     {"name":"inst_76EC8F66_1_1_1_1","path":"rooms/rm_puzzle_3_3/rm_puzzle_3_3.yy",},
-    {"name":"inst_7A07A1DF_1_1","path":"rooms/rm_puzzle_3_3/rm_puzzle_3_3.yy",},
     {"name":"inst_37CEC90F_1_1","path":"rooms/rm_puzzle_3_3/rm_puzzle_3_3.yy",},
     {"name":"inst_6EE29C0A_1_1","path":"rooms/rm_puzzle_3_3/rm_puzzle_3_3.yy",},
     {"name":"inst_48C27B00_1_1","path":"rooms/rm_puzzle_3_3/rm_puzzle_3_3.yy",},
@@ -62,6 +61,7 @@
     {"name":"inst_6B8C9A6C","path":"rooms/rm_puzzle_3_3/rm_puzzle_3_3.yy",},
     {"name":"inst_40A14659","path":"rooms/rm_puzzle_3_3/rm_puzzle_3_3.yy",},
     {"name":"inst_6539C8E6","path":"rooms/rm_puzzle_3_3/rm_puzzle_3_3.yy",},
+    {"name":"inst_C3EF777","path":"rooms/rm_puzzle_3_3/rm_puzzle_3_3.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -76,7 +76,7 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_teleport_zone","path":"objects/obj_teleport_zone/obj_teleport_zone.yy",},"propertyId":{"name":"target_y","path":"objects/obj_teleport_zone/obj_teleport_zone.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"180",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_teleport_zone","path":"objects/obj_teleport_zone/obj_teleport_zone.yy",},"propertyId":{"name":"target_rm","path":"objects/obj_teleport_zone/obj_teleport_zone.yy",},"resource":{"name":"rm_puzzle_3_2","path":"rooms/rm_puzzle_3_2/rm_puzzle_3_2.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"rm_puzzle_3_2",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_teleport_zone","path":"objects/obj_teleport_zone/obj_teleport_zone.yy",},"propertyId":{"name":"target_face","path":"objects/obj_teleport_zone/obj_teleport_zone.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"LEFT",},
-          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":2.0,"x":16.0,"y":512.0,},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":2.0,"x":36.0,"y":512.0,},
         {"$GMRInstance":"v2","%Name":"inst_514A9613","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_514A9613","objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":15.0,"scaleY":9.0,"x":48.0,"y":336.0,},
         {"$GMRInstance":"v2","%Name":"inst_3E2DE3DB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3E2DE3DB","objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":16.0,"scaleY":15.0,"x":336.0,"y":336.0,},
         {"$GMRInstance":"v2","%Name":"inst_36A35125","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_36A35125","objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":34.0,"scaleY":2.0,"x":48.0,"y":256.0,},
@@ -128,9 +128,6 @@
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":216.5,"y":92.0,},
       ],"layers":[],"name":"Instances_1","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":300,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"v2","%Name":"inst_7A07A1DF_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7A07A1DF_1_1","objectId":{"name":"obj_controller_puzzle_3_1","path":"objects/obj_controller_puzzle_3_1/obj_controller_puzzle_3_1.yy",},"properties":[
-            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_controller_puzzle_base","path":"objects/obj_controller_puzzle_base/obj_controller_puzzle_base.yy",},"propertyId":{"name":"array_puzzle","path":"objects/obj_controller_puzzle_base/obj_controller_puzzle_base.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"True",},
-          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":-64.0,},
         {"$GMRInstance":"v2","%Name":"inst_37CEC90F_1_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_37CEC90F_1_1","objectId":{"name":"obj_array_element","path":"objects/obj_array_element/obj_array_element.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_array_element","path":"objects/obj_array_element/obj_array_element.yy",},"propertyId":{"name":"array_id","path":"objects/obj_array_element/obj_array_element.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"array_1",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_array_element","path":"objects/obj_array_element/obj_array_element.yy",},"propertyId":{"name":"index","path":"objects/obj_array_element/obj_array_element.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
@@ -276,6 +273,7 @@
         {"$GMRInstance":"v2","%Name":"inst_40A14659","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_40A14659","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"propertyId":{"name":"required_global_flag","path":"objects/obj_door/obj_door.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"puzzle_3_2_completed",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":34.0,"y":477.0,},
+        {"$GMRInstance":"v2","%Name":"inst_C3EF777","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_C3EF777","objectId":{"name":"obj_controller_puzzle_3_3","path":"objects/obj_controller_puzzle_3_3/obj_controller_puzzle_3_3.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":135.0,"y":-66.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Assets_1","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_7AA1727B_1_1","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_7AA1727B_1_1","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_cable","path":"sprites/spr_cable/spr_cable.yy",},"x":464.0,"y":147.0,},

@@ -1,4 +1,4 @@
-if instance_exists(obj_controller_puzzle_base) {
+if instance_exists(obj_controller_puzzle_base) && !instance_exists(obj_controller_lobby) {
 	sprite[RIGHT] = spr_player_right_work;
 	sprite[UP] = spr_player_up_work;
 	sprite[LEFT] = spr_player_left_work;

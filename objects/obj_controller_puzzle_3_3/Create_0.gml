@@ -25,14 +25,13 @@ ds_list_add(solution_list, m);
 
 array_puzzle = true;
 
-global.puzzle_3_1_completed = false;
-global.cur_day = "day_03_puzzle";
+global.puzzle_3_3_completed = false;
+//global.cur_day = "day_03_puzzle";
 
 on_complete = function() {
-	if (!global.puzzle_3_1_completed) {
-		show_message("Puzzle resolvido");
-		global.puzzle_3_1_completed = true;
+	if (!global.puzzle_3_3_completed) {
+		global.puzzle_3_3_completed = true;
 	}
 }
 
-concept_unlock("concept.arrays");
+//concept_unlock("concept.arrays");
