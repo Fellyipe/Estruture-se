@@ -15,5 +15,11 @@ on_complete = function() {
 	}
 };
 
-concept_unlock("day1_pointer_crystal");
+on_descomplete = function() {
+	if (global.puzzle_1_1_completed) {
+		global.puzzle_1_1_completed = false;
+	}
+};
+
 concept_unlock("day1_room1_instructions");
+concept_unlock("day1_pointer_crystal");

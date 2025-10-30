@@ -38,16 +38,6 @@ function concepts_data() {
         meta: { days: ["day_01"], rooms: ["rm_puzzle_2_1","rm_puzzle_2_2"], tags: ["basic"] }
     };
  
-    d[$ "teste"] = {
-        title: "Inserção e Remoção",
-        pages: [
-			"Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus leo eu aenean sed diam urna tempor pulvinar vivamus fringilla lacus nec metus bibendum egestas iaculis massa nisl malesuada lacinia integer nunc posuere ut hendrerit semper vel class aptent taciti sociosqu ad litora torquent per conubia nostra inceptos himenaeos orci varius natoque (Tamanho máximo).",
-            "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus leo eu aenean sed diam urna tempor pulvinar (Tamanho recomendado).",
-            "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id (Tamanho mais curto, bom para textos pequenos).",
-			"Blá blá blá."
-        ],
-        meta: { days: ["day_01"], rooms: ["rm_puzzle_2_1","rm_puzzle_2_2"], tags: ["basic"] }
-    };
 	
 	d[$ "intro_lore"] = {
         title: "Introdução",
@@ -206,185 +196,39 @@ function concepts_data() {
 		]
 	};
 
-
-
-
+	d[$ "day3_room2_concept"] = {
+		title: "Inserção e Remoção",
+		pages: [
+			"Em uma lista encadeada, cada nó aponta para o próximo por meio de um ponteiro. Para remover um nó no meio da lista, basta ajustar o ponteiro do nó anterior para que ele passe a apontar para o seguinte — assim, o nó removido é simplesmente pulado. Já para inserir um novo nó, é preciso ligar o ponteiro do nó anterior ao novo nó, e então conectar o novo nó ao próximo, completando a cadeia novamente.",
+			"Em um [#488BD4]Vetor[/colour], as [#928FB8]Células[/colour] formam um bloco contínuo na memória — não há ponteiros que permitam saltar posições. Por isso, quando você remove um elemento do meio, é necessário mover todos os elementos seguintes uma posição para trás, fechando o espaço vazio. Do mesmo modo, ao inserir um elemento no meio, é preciso deslocar os elementos à frente para abrir espaço.",
+			"Com poucos elementos, essa diferença pode parecer pequena, mas em estruturas com centenas ou milhares de elementos o custo de mover cada célula cresce rapidamente. Por isso, em sistemas reais, a escolha entre uma [#488BD4]Lista Encadeada[/colour] ou um [#488BD4]Vetor[/colour] depende das operações que precisam ser feitas com mais frequência.",		
+		]
+	};
 	
-	/*
+
+
+
+
+	d[$ "day3_room2_instructions"] = {
+		title: "Reorganizando Estruturas",
+		pages: [
+			"Você está diante de dois pares de estruturas: [#488BD4]Listas Encadeadas[/colour] e [#488BD4]Vetores[/colour]. Cada par contém a mesma sequência de [#fafafa]Datacores[/colour].",
+			"Seu trabalho é reorganizar as estruturas conforme os [#928FB8]painéis[/colour] de referência: no primeiro par, remova um [#fafafa]Datacore[/colour] do meio da sequência; no segundo par, insira esse mesmo [#fafafa]Datacore[/colour] na posição indicada.",
+			"Nas [#488BD4]Listas Encadeadas[/colour], ajuste as ligações dos [#928FB8]ponteiros[/colour] para manter a sequência contínua. Nos [#488BD4]Vetores[/colour], mova os [#fafafa]Datacores[/colour] de modo que não reste nenhum espaço vazio entre as [#928FB8]Células[/colour].",		
+		]
+	};
+
+	d[$ "day3_room3_concept"] = {
+		title: "Leitura: Vetor vs Lista",
+		pages: [
+			"Aqui você verá como a informação é percorrida dentro de duas estruturas diferentes: o [#488BD4]Vetor[/colour] e a [#78D7FF]Lista Encadeada[/colour]. Ambas armazenam dados, mas o caminho até cada valor é bem distinto.",
+			"No [#488BD4]Vetor[/colour], cada célula ocupa um espaço contíguo na memória. Isso permite que o sistema calcule a posição exata de qualquer elemento a partir de seu índice — sem precisar percorrer o restante da estrutura. É como abrir uma gaveta numerada e pegar o item certo de uma vez.",
+			"Já na [#78D7FF]Lista Encadeada[/colour], os dados estão distribuídos em diferentes endereços de memória, conectados por ponteiros. Cada nó sabe apenas onde está o próximo, então para encontrar um elemento específico, é preciso seguir essa corrente, nó por nó, até alcançá-lo.",
+			"Durante a simulação, o painel central exibirá o índice atual e alternará entre as duas leituras. No [#488BD4]Vetor[/colour], a célula correspondente será iluminada de imediato; na [#78D7FF]Lista[/colour], os nós acenderão em sequência até chegar ao valor pedido.",
+			"Você não precisa realizar nenhuma ação nesta sala — apenas observe e perceba como cada estrutura lida com o processo de leitura de um valor."
+		]
+	};
 	
-	concepts_data = {};
-
-/// --- INTRO (narrativa + fluxo do dia) ---
-concepts_data[$ "intro"] = {
-    title: "Boas-vindas — Manual do Técnico",
-    pages: [
-        // Página 1 — narrativa curta
-        "Bem-vindo à AetherGrid Systems. Você é o novo técnico de manutenção 
-        alocado no turno de rotina. Seu trabalho é inspeccionar e consertar os módulos 
-        AetherCores — pequenos cristais de energia que guardam metadados e impulsionam cargas. 
-        Todo dia você recebe um briefing no PDA: entra no hub, checa as tarefas, vai às salas 
-        designadas, completa as manutenções e volta ao RH para registrar o relatório do dia.",
-        // Página 2 — fluxo prático (curto)
-        "O fluxo de um dia: (1) passe pelo hub e leia o briefing no tablet; (2) vá até a sala 
-        indicada; (3) execute as manutenções (puzzles) — cada sala tem objetivos claros; (4) 
-        quando as tarefas estiverem completas a porta abre; (5) retorne ao lobby e entregue o 
-        relatório no RH. Repita nos próximos dias.",
-        // Página 3 — tom e propósito
-        "Estes textos explicam os conceitos por trás das mecânicas que você verá durante a 
-        manutenção — ponteiros, nós, listas e racks (arrays). As salas são exercícios práticos: 
-        observe, experimente e relacione as ações que você faz com a explicação aqui. O tom é 
-        técnico, porém acessível; sempre que quiser, abra o tablet e releia.",
-        "Resumo dos três dias: Dia 1 — Ponteiros: como um módulo aponta para outro; Dia 2 — 
-        Nós e listas: cada nó junta um ponteiro a um data-core (dado) e as listas mostram 
-        encadeamento; Dia 3 — Arrays (FluxRacks): sequência indexada de slots, com diferenças 
-        práticas na leitura e na modificação. Ao terminar o terceiro dia haverá um epílogo 
-        narrativo que fecha a experiência.",
-        // Página 5 — instrução de uso do tablet
-        "Dica rápida: use o tablet sempre que precisar relembrar a teoria. As páginas têm 
-        estrutura modular (você pode abrir cada módulo e navegar por páginas). Textos com 
-        marcação especial '[TÉCNICO]' apresentam explicações mais 'reais' — exiba-os em cor 
-        diferente para indicar que são leituras mais profundas."
-    ]
-};
-
-concepts_data = {};
-
-/// --- INTRO: apareceria no tablet no começo do jogo (mensagem "Boas-vindas")
-concepts_data[$ "intro"] = {
-    title: "Boas-vindas — AetherGrid Systems",
-    pages: [
-        // 1
-        "Há poucos anos, campos cristalinos foram descobertos em um vale remoto — pedaços de um " +  
-		"mineral que reagem com sinais elétricos de formas que a ciência ainda descreve com cautela.", 
-		"São cristais que acumulam e transportam energia e, estranhamente, configuram e preservam " +
-		"padrões de informação.",
-		"A AetherGrid nasceu daí: transformar esse estranho presente em infraestrutura.",// *Explicar um pouco mais de lore da empresa, talvez falando dos pesquisadores e engenheiros, e tbm falar do que ela faz em si* ",
-		//*Aqui vou começar a escrever, e queria que você me fizesse as devidas correções, pro texto ficar melhor*
-		"Entretanto, esses cristais são instáveis se não manuseados corretamente, e, se tratando de uma nova " +
-		"tecnologia, os sitemas da empresa que utilizam esses cristais frequentemente precisam de manutenção.",
-		"Entretanto, o serviço é de alto risco, e necessita de pessoas capacidades para tal. E é aí que entra você!"]
-	}
-concepts_data[$ "intro"] = {
-    title: "Boas-vindas — AetherGrid Systems",
-    pages: [
-		Hoje você começa como técnico de manutenção do campus.",
-        // 2
-        "O seu trabalho é simples no enunciado e perigoso na prática: entrar nas salas controladas 
-		por AetherCores, colocar os cristais em seus soquetes, ajustar as conexões e devolver o 
-		fluxo em segurança. O tablet que você carrega é tanto guia quanto diário: use-o para 
-		receber briefings, rever instruções e abrir módulos conceituais quando ficar em dúvida.",
-        // 3
-        "Cada dia tem uma rotina: no hub você confere o briefing; atravessa a porta do turno (o 
-		'elevador') e entra no setor de manutenção; resolve as salas que aparecem na lista do 
-		tablet; quando todas as tarefas são concluídas, a porta principal do setor se abre — volte 
-		ao lobby e registre o relatório no RH para encerrar o dia.",
-        // 4
-        "Enquanto estiver numa sala, o tablet mostra objetivos e dicas concisas. Não espere que o 
-		tablet entregue soluções: ele explica o funcionamento dos aparelhos — como os cristais 
-		respondem, como as torres se conectam, e o que se espera das manutenções. Se precisar, abra 
-		o tablet e releia o módulo correspondente.",
-        // 5
-        "Nota rápida: as palavras no chão da fábrica podem ter nomes próprios (Torre, Cabo, 
-		FluxRack, Data-core). No manual dentro do tablet, usamos termos que ajudam a relacionar os 
-		objetos da sala com a tecnologia real por trás deles. Páginas com a marca '[TÉCNICO]' 
-		trazem notas mais fiéis ao mundo real; leia com atenção se quiser saber a versão científica 
-		por trás da operação."
-    ]
-};
-
-
-/// --- DAY 01: Ponteiros e Cristais (módulo que será desbloqueado no Dia 1)
-concepts_data[$ "day_01_pointers"] = {
-    title: "Dia 1 — Ponteiros & Cristais",
-    pages: [
-        // 1: abertura / cenário
-        "Hoje você será introduzido ao mecanismo mais fundamental da rede AetherGrid: como um 
-		módulo direciona energia e informação para outro. Nas salas, você verá pequenas torres 
-		com um encaixe para cristal — quando um cristal é colocado, a torre pode transmitir 
-		energia por meio de um cabo que aponta para outra torre. Entender esse fluxo é o primeiro 
-		passo para manter a rede estável.",
-        // 2: como é na prática (jogo)
-        "Na sala, cada torre tem uma etiqueta (A, B, C...). Para configurar uma ligação, insira 
-		um cristal no encaixe e edite o 'endereço' da torre (aperte R quando estiver perto). O 
-		endereço aponta para outra torre — pense nisso como escrever no cabo a placa do destino. 
-		Se a cadeia de torres forma um caminho correto, a energia atravessa de um cristal ao 
-		outro e a porta da sala abre.",
-        // 3: comportamento das energias (regra do jogo em mundo)
-        "Algumas regras visíveis: uma torre só transmite se tiver um cristal encaixado e se 
-		receber energia de outra torre que aponte para ela (com exceção de torres marcadas como 
-		'head', que vêm com fonte própria). Se uma torre no caminho perde o cristal, tudo que vem 
-		depois perde a energia também. Por isso, consertos que mexem em endereços afetam a 
-		corrente mais adiante.",
-        // 4: interação e atenção (controle)
-        "Se estiver preso, lembre-se: 1) verifique se a torre que deveria ser a fonte (head) está 
-		energizada; 2) confira se as torres intermediárias têm cristais encaixados; 3) abra o 
-		tablet para comparar o esquema da parede com a configuração atual. Pequenas trocas de 
-		endereço fazem grandes mudanças no fluxo.",
-        // 5: exemplo narrativo (cenário da sala 3 do dia)
-        "Em algumas salas você encontrará cristais que não podem ser removidos — eles estão 
-		presos pela segurança. Em outras haverá sinais de proteção: postes que geram campos 
-		elétricos enquanto [X] estiverem energizados. Cautela ao editar endereços: às vezes a 
-		solução é interromper um caminho (apontando para 'null') para desativar um circuito e 
-		abrir passagem.",
-        // 6: design de puzzles (explicação imersa)
-        "As primeiras salas propõem exercícios curtos: ligar A → B, depois sequências maiores. 
-		Mais adiante você verá combinações que exigem pensar em cadeias: ao rearranjar endereços 
-		você está, na prática, reprogramando o roteiro da energia. O objetivo é restaurar o fluxo 
-		sem causar instabilidade — pequenas sobrecargas geram falhas temporárias.",
-        // 7: [TÉCNICO] (marcar visualmente diferente)
-        "[TÉCNICO] Em termos práticos, um 'ponteiro' em software é um valor que representa o 
-		endereço de memória de outro bloco. No protótipo, tratamos o endereço como um rótulo 
-		legível; 'head' equivale a uma fonte alimentada. É importante entender que, em sistemas 
-		reais, referências e alocação de memória exigem mecanismos de segurança e gerenciamento 
-		(por isso nos restringimos a um modelo controlado para os puzzles)."
-    ]
-};
-
-
-/// --- DAY 02: NÓS (ponteiro + data-core) ---
-concepts_data[$ "day_02_nodes"] = {
-    title: "Dia 2 — Nós: juntar ponteiro + dado",
-    pages: [
-        // Página 1 — introdução concisa
-        "Hoje você trabalha com nós: estruturas pequenas compostas por uma torre que aponta 
-		(o 'cabo') e um data-core (o cristal) que guarda o valor. Pense em cada nó como uma 
-        pequena caixa com um cabo preso — o cabo diz para qual caixa a corrente deve ir, e o 
-        cristal contém o que a caixa guarda.",
-        // Página 2 — o que é um nó, em linguagem do jogo
-        "No mundo da AetherGrid: Torre = nó; Cabo = ponteiro; Data-core = valor. Na sala você 
-        verá pares: uma torre que armazena um cristal e outro objeto que funciona como seu cabo. 
-        A ação principal é: colocar um data-core no slot do nó e editar o cabo para apontar ao 
-        próximo nó.",
-        // Página 3 — analogia prática (didática)
-        "Analogia: imagine uma fila de fichas postais. Cada ficha contém um pedaço de informação 
-        (o cristal) e um bilhete dizendo para qual ficha enviar a próxima mensagem (o cabo). Para 
-        percorrer a fila você segue os bilhetes, um a um — isso ilustra o encadeamento.",
-        // Página 4 — comportamento em jogo (feedback & regras)
-        "Regras essenciais (resumo para usar na sala): (1) um nó transmite energia para o próximo 
-        somente se tiver um cristal encaixado; (2) o ponteiro do nó é editável (você decide o 
-        endereço); (3) se um nó deixa de receber energia, ele não transmite adiante — e isso 
-        apaga a corrente nos nós subsequentes até que uma fonte (head) reenergize a cadeia.",
-        
-        "Objetivo pedagógico: aprender a diferença entre 'apontar' e 'conter'. Em uma lista, a 
-        ordem e a conexão são definidas por ponteiros; mover/alterar ponteiros altera o fluxo sem 
-        trocar necessariamente os dados. Pratique: insira, remova ou reconecte nós e observe como 
-        a corrente muda.",
-        
-        "Atenção: dois ponteiros podem apontar para o mesmo data-core. Isso é aliasing — duas 
-        referências para o mesmo valor. Uma modificação no dado afetará todas as referências. Em 
-        puzzles, esse comportamento pode criar efeitos interessantes (ou armadilhas).",
-        
-        "[TÉCNICO] Em sistemas reais, um 'ponteiro' é uma referência a um endereço de memória; um 
-        'nó' em uma lista encadeada é um bloco de memória que contém um dado e um endereço (ou 
-        referência) para o próximo bloco. 'Aliasing' ocorre quando várias referências apontam 
-        para a mesma posição; a gestão de memória (alocação e liberação) é feita pelo sistema — 
-        no protótipo simplificamos isso com um pool controlado para evitar erros de referência."
-    ]
-};
-
-
-    // ... adicionar mais conceitos ...
-*/
     return d;
 }
 
@@ -417,15 +261,17 @@ function concept_unlock(concept_id) {
     // check exists in data (defensive)
     var c = concept_get(concept_id);
     if (c == noone) {
-        show_debug_message("scr_concept_unlock: id not found: " + string(concept_id));
+        show_debug_message("concept_unlock: id not found: " + string(concept_id));
         return false;
     }
     // already unlocked?
     for (var i = 0; i < array_length(global.unlocked_concepts); ++i) {
         if (global.unlocked_concepts[i] == concept_id) return false;
     }
-    array_push(global.unlocked_concepts, concept_id);
-    // optional: immediate feedback to player
+    //array_push(global.unlocked_concepts, concept_id);
+    array_insert(global.unlocked_concepts, 0, concept_id);
+	
+	// optional: immediate feedback to player
     //show_popup("Novo conceito desbloqueado: " + string(c.title), 2);
 	show_concept_notify();
 	obj_tablet.conceptual_items = concept_build_list_for_tablet();

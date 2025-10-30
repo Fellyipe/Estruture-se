@@ -18,3 +18,11 @@ on_complete = function() {
 		global.puzzle_1_2_completed = true;
 	}
 };
+
+on_descomplete = function() {
+	if (global.puzzle_1_2_completed) {
+		global.puzzle_1_2_completed = false;
+	}
+};
+
+concept_unlock("day1_pointer_concept");

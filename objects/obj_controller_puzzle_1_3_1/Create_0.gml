@@ -32,4 +32,10 @@ on_descomplete = function() {
 			y = 15000;
 		}
 	}
+	if(global.puzzle_1_3_1_completed) {
+		global.puzzle_1_3_1_completed = false;
+	}
 }
+
+
+concept_unlock("day1_room3_overview");

@@ -7,7 +7,6 @@ if (!global.popup_called) {
 
 global.popup_called = true;
 
-concept_unlock("intro_lore");
 concept_unlock("welcome_day1");
 
 show_popup("Aperte Tab para abrir o tablet", 6);

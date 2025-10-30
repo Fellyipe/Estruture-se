@@ -1,0 +1,1 @@
+global.ui_blocked = true;

@@ -152,6 +152,9 @@ options_items = [
 					with (global.save_manager) {
 						load_slot(1);
 					}
+					tablet_open = false;
+					global.is_paused = tablet_open;
+					global.ui_blocked = false
 					show_popup("Jogo carregado do slot 1");
 				} 
     },

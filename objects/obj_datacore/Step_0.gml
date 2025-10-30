@@ -26,5 +26,5 @@ var wanted_depth = -foot_y;
 if (depth != wanted_depth) depth = wanted_depth;
 
 if (in_tower != noone) {
-	depth = in_tower.depth - 1;
+	depth = in_tower.depth - 5;
 }

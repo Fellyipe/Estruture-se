@@ -10,3 +10,5 @@ menu_actions_escape = [
 ];
 
 selected_index = 0;
+
+draw_set_alpha(1);

@@ -31,4 +31,10 @@ on_complete = function() {
 	}
 }
 
-concept_unlock("concept.pointers");
+on_descomplete = function() {
+	if (global.puzzle_2_1_completed) {
+		global.puzzle_2_1_completed = false;
+	}
+}
+
+//concept_unlock("concept.pointers");

@@ -251,6 +251,7 @@ function ensure_player_not_carrying_for_save() {
 					}
                     carried_by = noone;
                     in_tower = noone;
+					in_tower_address = "";
                 }
                 carrying = noone;
             } else {
