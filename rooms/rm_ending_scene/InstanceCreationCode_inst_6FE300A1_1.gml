@@ -6,7 +6,7 @@ text =
 "Se seu objetivo foi aprender, ótimo - isso foi proposital. Se veio só para brincar, obrigado pela companhia. Seja como for, você agora tem um mapa mental desses mecanismos - e pode reconhecê-los fora daqui, em código ou em sistemas maiores.\n\n" +
 "AetherGrid continuará a rodar. Foram feitos ajustes, registros e relatórios; você fez parte disso. Há mais perguntas remanescentes, e mais peças da rede esperando manutenção - mas isso deixaremos para uma próxima.\n\n" +
 "Obrigado por jogar.\n" +
-"Créditos\n> Desenvolvido por: \n> Professor Orientador: \n> Protótipo para Trabalho de Conclusão de Curso\n> Engine utilizada: GameMaker Studio 2";
+"Créditos\n> Desenvolvido por: Felipe Bueno\n> Professor Orientador: Jorge Aikes Junior\n> Protótipo para Trabalho de Conclusão de Curso\n> Engine utilizada: GameMaker Studio 2";
 
 
 paragraphs = string_split(text, "\n\n");

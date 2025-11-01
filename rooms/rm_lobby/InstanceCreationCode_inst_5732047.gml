@@ -1,4 +1,5 @@
 on_enter = function() {
+	if(!global.already_worked) return;
 	if (global.cur_day == "day_01") {
 		global.cur_day = "day_02";
 		

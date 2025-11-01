@@ -25,7 +25,7 @@ ds_list_add(solution_list, m);
 
 m = ds_map_create();
 ds_map_add(m, "array_id", "array_1");
-ds_map_add(m, "index", 2);
+ds_map_add(m, "index", 3);
 ds_map_add(m, "payload", "e5");
 ds_map_add(m, "require_occupied", true);
 ds_list_add(solution_list, m);
@@ -36,17 +36,14 @@ global.puzzle_3_2_2_completed = false;
 
 function on_complete() {
 	if (!global.puzzle_3_2_2_completed) {
-		//show_message("Puzzle resolvido");
+		audio_play_sound(snd_puzzle_solved_unused, 0, false, 1, 0, 1);
 		global.puzzle_3_2_2_completed = true;
 	}
 }
 
-//concept_unlock("concept.arrays2");
+function on_descomplete() {
+	if (global.puzzle_3_2_2_completed) {
+		global.puzzle_3_2_2_completed = false;
+	}
+}
 
-//// no controller da sala, ao fechar/ir ao lobby:
-//with (global.save_manager) {
-//    save_room_state(room_get_name(room));
-//}
-//with (global.save_manager) {
-//    save_slot(1); // escreve JSON no disco
-//}

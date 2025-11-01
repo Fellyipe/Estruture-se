@@ -35,17 +35,15 @@ global.puzzle_3_2_3_completed = false;
 
 function on_complete() {
 	if (!global.puzzle_3_2_3_completed ) {
-		//show_message("Puzzle resolvido");
+		audio_play_sound(snd_puzzle_solved_unused, 0, false, 1, 0, 1);
 		global.puzzle_3_2_3_completed  = true;
 	}
 }
 
-//concept_unlock("concept.arrays2");
+function on_descomplete() {
+	if (global.puzzle_3_2_3_completed ) {
+		global.puzzle_3_2_3_completed  = false;
+	}
+}
 
-//// no controller da sala, ao fechar/ir ao lobby:
-//with (global.save_manager) {
-//    save_room_state(room_get_name(room));
-//}
-//with (global.save_manager) {
-//    save_slot(1); // escreve JSON no disco
-//}
+

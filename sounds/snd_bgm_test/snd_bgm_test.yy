@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":1,
   "conversionMode":0,
-  "duration":286.1395,
+  "duration":32.34975,
   "name":"snd_bgm_test",
   "parent":{
     "name":"Sons",

@@ -30,19 +30,28 @@ global.puzzle_3_1_completed = false;
 
 on_complete = function() {
 	if (!global.puzzle_3_1_completed) {
+		audio_play_sound(snd_puzzle_solved_unused, 0, false, 1, 0, 1);
 		global.puzzle_3_1_completed = true;
 	}
 }
 
+on_descomplete = function() {
+	if (global.puzzle_3_1_completed) {
+		global.puzzle_3_1_completed = false;
+	}
+}
 
-concept_unlock("day1_pointer_crystal");
-concept_unlock("day1_room1_instructions");
-concept_unlock("day1_pointer_concept");
-concept_unlock("day1_room3_overview");
-concept_unlock("day2_datacore_node_concept");
-concept_unlock("day2_room1_instructions");
-concept_unlock("day2_node_concept");
-concept_unlock("day2_room3_overview");
-concept_unlock("day3_array_overview");
-concept_unlock("day2_room1_instructions");
-concept_unlock("day3_array_concept");
+
+var unlock1 = concept_unlock("day3_array_concept");
+var unlock2 = concept_unlock("day3_room1_instructions");
+var unlock3 = concept_unlock("day3_array_overview");
+
+if(unlock1 || unlock2 || unlock3) {
+	with (obj_notification) {
+	    instance_destroy();
+	}
+	instance_create_layer(0, 0, "GUI", obj_notification);
+}
+
+
+global.already_worked = true;

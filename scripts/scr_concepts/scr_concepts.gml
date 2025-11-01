@@ -1,43 +1,5 @@
 function concepts_data() {
     var d = {};
-
-    d[$ "concept.pointers"] = {
-        title: "Ponteiros",
-        pages: [
-            "Ponteiros (Cables) apontam uma Tower para outra. Cada pointer guarda um endereço.",
-            "Coloque um cristal numa Tower e edite o endereço (R) para apontar outro nó.",
-            "Uma Tower só transmite se tiver cristal e receber energia de outra Tower (ou for head)."
-        ],
-        meta: { days: ["day_01"], rooms: ["rm_puzzle_2_1"], tags: ["basic"] }
-    };
-
-    d[$ "concept.nodes"] = {
-        title: "Nós e Data-cores",
-        pages: [
-            "Um Node é uma Tower + Data-slot. O Data-core é o payload (valor) armazenado no slot.",
-            "Coloque um Data-core no slot para definir o valor do node; ao mover o core, o valor muda."
-        ],
-        meta: { days: ["day_01"], rooms: ["rm_puzzle_2_1","rm_puzzle_2_2"], tags: ["basic"] }
-    };
-
-    d[$ "concept.arrays"] = {
-        title: "Arrays",
-        pages: [
-			"Um Array é uma sequência de torres alinhadas, cada uma guardando um valor em uma posição fixa (índice).",
-			"Ao contrário das listas, os elementos não usam ponteiros - ficam lado a lado. Isso facilita a leitura por posição, mas dificulta inserir ou remover valores no meio."
-        ],
-        meta: { days: ["day_03"], rooms: ["rm_puzzle_3_1"], tags: ["basic"] }
-    };
- 
-    d[$ "concept.arrays2"] = {
-        title: "Inserção e Remoção",
-        pages: [
-            "Inserir e remover elementos no fim de uma estrutura de dados é fácil, mas, como fazemos para fazer esse inserção ou remoção no meio da estrutura?",
-            "Blá blá blá."
-        ],
-        meta: { days: ["day_01"], rooms: ["rm_puzzle_2_1","rm_puzzle_2_2"], tags: ["basic"] }
-    };
- 
 	
 	d[$ "intro_lore"] = {
         title: "Introdução",
@@ -59,15 +21,15 @@ function concepts_data() {
 	d[$ "welcome_day1"] = {
         title: "Boas-vindas!",
 		pages: [
-	        "Bem-vindo à AetherGrid. Você foi designado para o setor de manutenção de sistemas [#fafafa]cristalinos[/colour] - o núcleo que mantém a rede funcionando. Seu trabalho é garantir que a energia e os dados circulem corretamente entre as torres e estruturas conectadas aos [#98E674]datacores[/colour].",
+	        "Bem-vindo à [#00567F]Aether[#207F19]Grid[/colour]. Você foi designado para o setor de manutenção de sistemas [c_cristal]cristalinos[/colour] - o núcleo que mantém a rede funcionando. Seu trabalho é garantir que a energia e os dados circulem corretamente entre as torres e estruturas conectadas à rede.",
 			
-			"Seu [#fffa11]tablet[/colour] é a principal ferramenta de apoio. É nele que você encontrará instruções, objetivos e explicações sobre o funcionamento dos equipamentos. Para acessá-lo, pressione [#78D7FF]Tab[/colour]. Novos módulos serão adicionados ao [#fffa11]tablet[/colour] conforme você descobre novos componentes durante o trabalho.",
+			"Seu [c_forte_amarelo]tablet[/colour] é a principal ferramenta de apoio. É nele que você encontrará instruções, objetivos e explicações sobre o funcionamento dos equipamentos. Para acessá-lo, pressione [c_tecla]Tab[/colour]. Novos módulos serão adicionados ao [c_forte_amarelo]tablet[/colour] conforme você descobre novos componentes durante o trabalho.",
 			
-			"A cada dia de trabalho, você será encaminhado para o setor designado. Lá, deverá inspecionar e restaurar o funcionamento das salas indicadas. Após concluir todos os objetivos, o sistema abrirá o acesso de volta ao [#FF9757]lobby[/colour].",
+			"A cada dia de trabalho, você será encaminhado para o setor designado. Lá, deverá inspecionar e restaurar o funcionamento das salas indicadas. Após concluir todos os objetivos, o sistema abrirá o acesso de volta ao [c_sala]lobby[/colour].",
 			
-			"Quando retornar ao [#FF9757]lobby[/colour], dirija-se ao setor de [#FF9757]Recursos Humanos[/colour] para registrar o encerramento do turno. Essa etapa confirma o fim das atividades e encerra o dia.",
+			"Quando retornar ao [c_sala]lobby[/colour], dirija-se ao setor de [c_sala]Recursos Humanos[/colour] para registrar o encerramento do turno. Essa etapa confirma o fim das atividades e encerra o dia.",
 			
-			"Vá até o elevador, siga as orientações do [#fffa11]tablet[/colour] e mantenha o sistema estável. Boa sorte no seu primeiro dia!"
+			"Vá até o [c_forte_amarelo]elevador[/colour], siga as orientações do [c_forte_amarelo]tablet[/colour] e mantenha o sistema estável. Boa sorte no seu primeiro dia!"
 
 		]
 	};
@@ -75,37 +37,37 @@ function concepts_data() {
 	d[$ "day1_pointer_crystal"] = {
         title: "Torre Ponteiro e Cristais",
 		pages: [
-	        "Cada torre que você vê é uma [#488BD4]Torre Ponteiro[/colour][spr_pointer]. Quando energizada, ela pode direcionar o fluxo de energia para outra torre - como se estivesse apontando para ela.",
+	        "Cada torre que você vê é uma [c_torres]Torre Ponteiro[/colour] [spr_pointer, 0]. Quando energizada, ela pode direcionar o fluxo de energia para outra torre - como se estivesse apontando para ela.",
 
-			"Para isso, cada torre precisa de um [#fafafa]cristal[/colour]. Os [#fafafa]cristais[/colour] conduzem a energia entre as torres. Basta se aproximar de um [#fafafa]cristal[/colour] pressionar [#78D7FF]E[/colour] para pegar. Quando estiver com um [#fafafa]cristal[/colour] em mãos, aproxime-se de uma [#488BD4]torre ponteiro[/colour] e pressione [#78D7FF]E[/colour] novamente para encaixá-lo. Se você quiser remover um [#fafafa]cristal[/colour] de uma torre, pressione [#78D7FF]E[/colour] mais uma vez - desde que suas mãos estejam livres.",
+			"Para isso, cada torre precisa de um [c_cristal]cristal[/colour] [spr_crystal]. Os [c_cristal]cristais[/colour] conduzem a energia entre as torres. Basta se aproximar de um [c_cristal]cristal[/colour] pressionar [c_tecla]E[/colour] para pegar. Quando estiver com um [c_cristal]cristal[/colour] em mãos, aproxime-se de uma [c_torres]torre ponteiro[/colour] e pressione [c_tecla]E[/colour] novamente para encaixá-lo. Se você quiser remover um [c_cristal]cristal[/colour] de uma torre, pressione [c_tecla]E[/colour] mais uma vez - desde que suas mãos estejam livres.",
 
-			"Ao se aproximar de uma [#488BD4]torre ponteiro[/colour], pressione [#78D7FF]R[/colour] para abrir sua interface de edição. Nela, você poderá definir o endereço de destino - a torre para onde este [#488BD4]ponteiro[/colour] enviará energia. Os endereços seguem o formato hexadecimal de quatro dígitos (0 a F). Por exemplo: [#928FB8]0x12ab[/colour], onde o [#928FB8]0x[/colour] indica que se trata de uma notação hexadecimal.",
+			"Ao se aproximar de uma [c_torres]torre ponteiro[/colour], pressione [c_tecla]Q[/colour] para abrir sua interface de edição. Nela, você poderá definir o endereço de destino - a torre para onde este [c_torres]ponteiro[/colour] enviará energia. Os endereços seguem o formato hexadecimal de quatro dígitos (de 0 a F). Por exemplo: [#928FB8]0x12ab[/colour], onde o [#928FB8]0x[/colour] indica que se trata de uma notação hexadecimal.",
 
-			"Quando o endereço aponta corretamente para outra torre existente, e essa torre também possui um [#fafafa]cristal[/colour], a energia flui, e a torre receptora acende.",
+			"Quando o endereço aponta corretamente para outra torre existente, e essa torre também possui um [c_cristal]cristal[/colour], a energia flui, e a torre receptora acende.",
 		]
 	};
-	
+
 	d[$ "day1_room1_instructions"] = {
-        title: "Primeiras Instruções",
+        title: "Instruções - Ponteiros",
 		pages: [
-			"Esta é sua primeira tarefa prática. Seu objetivo é restaurar a rota de energia entre as [#488BD4]torres ponteiro[/colour], seguindo o esquema exibido no [#928FB8]painel[/colour] da direita.",
+			"Esta é sua primeira tarefa prática. Seu objetivo é restaurar a rota de energia entre as [c_torres]torres ponteiro[/colour], seguindo o esquema exibido no [#928FB8]painel[/colour] da direita [spr_poster].",
 
-			"Abaixo de cada torre há uma [#928FB8]placa identificadora[/colour] — A, B, C… — e no [#928FB8]painel[/colour] da direita você encontrará o mapa de ligação entre elas. Para resolver, encaixe os [#fafafa]cristais[/colour] nas torres indicadas e edite os endereços conforme o mapa.",
+			"Abaixo de cada torre há uma [#928FB8]placa identificadora[/colour] [spr_letters, 33] e no [#928FB8]painel[/colour] da direita [spr_poster] você encontrará o mapa de ligação entre elas. Para resolver, encaixe os [c_cristal]cristais[/colour] nas torres indicadas e edite os endereços conforme o mapa.",
 
-			"O [#928FB8]painel[/colour] da esquerda mostra a correspondência entre cada torre e seu endereço hexadecimal (exemplo: &A = 0x1111). Use essa referência para configurar corretamente os [#488BD4]ponteiros[/colour].",
+			"O [#928FB8]painel[/colour] da esquerda mostra a correspondência entre cada torre e seu endereço hexadecimal (exemplo: &A = 0x1111). Use essa referência para configurar corretamente os [c_torres]ponteiros[/colour]. Para abrir um [#928FB8]painel[/colour], aproxime-se de um deles e aperte [c_tecla]Q[/colour]",
 
 			"Quando todos os endereços estiverem certos e a rota de energia completa, as torres estarão iluminadas, e a porta da sala será aberta. Caso algo não funcione, revise as ligações e corrija o fluxo.",
 
-			"Por fim, note que a torre com um [#928FB8]círculo branco[/colour] na base é a torre [#928FB8]Head[/colour] — a origem da corrente. É ela quem inicia o fluxo de energia por toda a cadeia de [#488BD4]ponteiros[/colour]."
+			"Por fim, note que a torre com um [#928FB8]círculo branco[/colour] [spr_pointer_head] na base é a torre [#928FB8]Head[/colour] - a origem da corrente. É ela quem inicia o fluxo de energia por toda a cadeia de [c_torres]ponteiros[/colour]."
 		]
 	};
 
 
 
 	d[$ "day1_pointer_concept"] = {
-        title: "Conceito de Ponteiro",
+        title: "O que é um Ponteiro",
 		pages: [
-			"No mundo real, um [#488BD4]ponteiro[/colour] é uma variável que armazena um endereço de memória — ou seja, ele não guarda um valor diretamente, mas indica onde esse valor está. Um [#488BD4]ponteiro[/colour] pode também apontar para outro ponteiro, formando cadeias de endereços. À primeira vista, isso pode não ter um propósito prático, mas mais adiante você verá como essa ideia se torna uma ferramenta poderosa."
+			"No mundo real, um [c_torres]ponteiro[/colour] é uma variável que armazena um endereço de memória - ou seja, ele não guarda um valor diretamente, mas indica onde esse valor está. Um [c_torres]ponteiro[/colour] pode também apontar para outro [c_torres]ponteiro[/colour], formando cadeias de endereços. À primeira vista, isso pode não ter um propósito prático, mas mais adiante você verá como essa ideia se torna uma ferramenta poderosa."
 		]
 	};
 
@@ -113,36 +75,44 @@ function concepts_data() {
 	d[$ "day1_room3_overview"] = {
 		title: "Barreira de energia",
 		pages: [
-			"Nesta sala há um [#928FB8]poste[/colour] que mantém ativo um [#928FB8]campo elétrico[/colour], funcionando como uma barreira que impede a passagem. Uma das [#488BD4]torres ponteiro[/colour] está diretamente ligada ao poste, e enquanto essa torre estiver energizada, o campo permanece ativo.",
+			"Nesta sala há um [c_torres]poste[/colour] [spr_lightning_bulb, 0] que mantém ativo um campo elétrico, funcionando como uma barreira de segurança que impede a passagem. Uma das [c_torres]torres ponteiro[/colour] está diretamente ligada ao poste, e enquanto essa torre estiver energizada, o campo permanece ativo.",
 
 			"Seu objetivo é temporariamente desativar a barreira, atravessar para a área bloqueada, reorganizar as torres nesse setor e, ao final, reativar a barreira.",
 
-			"Para desativar a barreira de energia, interrompa o fluxo que chega à torre do poste. Uma forma simples de fazer isso é editar o endereço da torre que aponta para a torre ligada ao poste, configurando-o como nulo ([#928FB8]null[/colour])."
+			"Para desativar a barreira de energia, interrompa o fluxo que chega à torre do poste. Uma forma simples de fazer isso é editar o endereço da torre que aponta para a torre ligada ao poste, configurando-o como nulo (null), assim o [c_torres]ponteiro[/colour] deixa de apontar para qualquer torre.",		]
+	};
+
+	d[$ "day1_ending"] = {
+		title: "Fim do dia",
+		pages: [
+			"Parabéns! você concluiu todos os objetivos deste dia. Volte para o [c_sala]lobby[/colour] e dirija-se à sala do [c_sala]RH[/colour]",
 		]
 	};
 
 
 	d[$ "day2_datacore_node_concept"] = {
-		title: "Datacore, Data Slot e Nó",
+		title: "Datacore, Data-Slot e Nó",
 		pages: [
-			"Os Datacores são a evolução controlada dos cristais: elementos sintetizados para armazenar, processar e retransmitir informação com alta estabilidade. Pense neles como pequenos núcleos inteligentes — eles podem guardar padrões, executar rotinas simples ou manter estados que serão lidos por outros módulos.",
+			"Os [c_datacore]Datacores[/colour] [spr_datacore, 5] são a evolução controlada dos [c_cristal]cristais[/colour]: elementos sintetizados para armazenar, processar e retransmitir informação com alta estabilidade e baixa latência. Pense neles como pequenos núcleos inteligentes - eles podem guardar padrões, executar rotinas simples ou manter estados que serão lidos por outros módulos.",
 			
-			"O Data Slot é um tipo de receptáculo, projetado para acomodar um datacore com segurança. Ele segura o núcleo no lugar, mantendo a conexão elétrica necessária para que o Datacore cumpra sua função. Assim, o slot mantém o Datacore alinhado ao sistema e facilita a manutenção.",
+			"O [c_torres]Data-Slot[/colour] [spr_data_slot, 0] é um tipo de receptáculo, projetado para acomodar um [c_datacore]datacore[/colour] com segurança. Ele segura o núcleo no lugar, mantendo a conexão elétrica necessária para que o [c_datacore]datacore[/colour] cumpra sua função. Assim, o slot mantém o [c_datacore]datacore[/colour] alinhado ao sistema e facilita a manutenção.",
 			
-			"Um [#78D7FF]Nó[/colour] é a união prática entre um [#488BD4]Data Slot[/colour] e uma torre ponteiro. Pense no nó como uma estação: o slot aloja o Datacore; o ponteiro faz a ligação com o próximo ponto da cadeia. Dentro dessa estação, a torre ponteiro é o agente direcional: é ela quem transmite o pulso, levando energia e também o sinal que carrega a informação do Datacore adiante. Ou seja: os data slots armazenam/contêm os dados; os ponteiros apontam e transmitem. Juntos, eles permitem que tanto energia quanto informação sigam o roteiro definido.",
+			"Um [c_coisa]Nó[/colour] é a união prática entre um [c_torres]data-slot[/colour] e uma [c_torres]torre ponteiro[/colour]. Pense no nó como uma estação: o slot aloja o [c_datacore]datacore[/colour]; o [c_torres]ponteiro[/colour] faz a ligação com o próximo ponto da cadeia. Dentro dessa estação, a [c_torres]torre ponteiro[/colour] é o agente direcional: é ela quem transmite o pulso, levando energia e também o sinal que carrega a informação do [c_datacore]datacore[/colour] adiante.",
 			
-			"Quando vários nós são conectados, formam uma [#78D7FF]lista encadeada[/colour]: uma sequência de estações onde cada nó conhece o endereço do próximo. A ordem importa — cada [#fafafa]Datacore[/colour] pode cumprir um papel distinto dentro do processo: alguns apenas armazenam dados, outros executam módulos de processamento, e alguns realizam verificações ou controle. Independentemente da função de cada um, é a sequência correta que garante o fluxo lógico e contínuo de processamento de informações.",
+			"Ou seja: os [c_torres]data-slots[/colour] armazenam/contêm os dados; as [c_torres]torres ponteiros[/colour] apontam e transmitem. Juntos, eles permitem que tanto energia quanto informação sigam o roteiro definido.",
 			
-			"Para pegar um [#fafafa]datacore[/colour], aproxime-se dele e pressione [#78D7FF]E[/colour]. Para encaixá-lo em um [#488BD4]data slot[/colour], aproxime-se do slot vazio e pressione [#78D7FF]E[/colour] novamente. Para remover um datacore, basta repetir o mesmo procedimento, desde que você não esteja segurando outro objeto."
+			"Quando vários nós são conectados, formam uma [#]lista encadeada[/colour]: uma sequência de estações onde cada nó conhece o endereço do próximo. A ordem importa - cada [c_datacore]datacore[/colour] pode cumprir um papel distinto dentro do processo: alguns apenas armazenam dados, outros executam módulos de processamento, e alguns realizam verificações ou controle. Independentemente da função de cada um, é a sequência correta que garante o fluxo lógico e contínuo de processamento de informações.",
+			
+			"Para pegar um [c_datacore]datacore[/colour], aproxime-se dele e pressione [c_tecla]E[/colour]. Para encaixá-lo em um [c_torres]data-slot[/colour], aproxime-se do slot vazio e pressione [c_tecla]E[/colour] novamente. Para remover um [c_datacore]datacore[/colour], basta repetir o mesmo procedimento, desde que você não esteja segurando outro objeto."
 		]
 	};
 
 	d[$ "day2_room1_instructions"] = {
-		title: "Organizando Nós",
+		title: "Instruções - Nós",
 		pages: [
-			"Agora você lidará com os [#fafafa]Datacores[/colour] e [#488BD4]Data Slots[/colour]. Os ponteiros já estão configurados, então seu trabalho é apenas posicionar corretamente os [#fafafa]datacores[/colour] nos slots.",
+			"Agora você lidará com os [c_datacore]datacores[/colour] e [c_torres]data-slots[/colour]. Os [c_torres]ponteiros[/colour] já estão configurados, então seu trabalho é apenas posicionar corretamente os [c_datacore]datacores[/colour] nos slots.",
 			
-			"Para isso, encaixe cada [#fafafa]Datacore[/colour] no [#488BD4]Data Slot[/colour] correspondente, seguindo o esquema exibido no [#928FB8]painel[/colour] da parede. "
+			"Para isso, encaixe cada [c_datacore]datacore[/colour] no [c_torres]data-slot[/colour] correspondente, seguindo o esquema exibido no [#928FB8]painel[/colour] da parede. "
 		]
 	};
 
@@ -150,58 +120,58 @@ function concepts_data() {
 		title: "Conceito de Nó",
 		pages: [
 			"No mundo real, um [#78D7FF]nó[/colour] é uma unidade fundamental na estruturação de dados. Cada nó armazena um valor e uma referência (ou endereço) para outro nó. Isso permite criar cadeias de elementos conectados, onde cada um sabe apenas para onde seguir. ",
-			
+			"Em um nó, um [c_torres]ponteiro[/colour] pode estar vazio (null), indicando que o nó não tem sucessor. Esse é o fim natural de uma lista encadeada. ",
 			"Esse conceito simples é a base para diversas estruturas de dados, como [#78D7FF]listas encadeadas[/colour], [#78D7FF]árvores[/colour] e [#78D7FF]grafos[/colour]. Em todas elas, os nós trabalham juntos para organizar e relacionar informações de forma flexível e dinâmica. "
 		]
 	};
 
 	d[$ "day2_room3_overview"] = {
-		title: "Listas simultâneas",
-		pages: [
-			"Esta área é composta por três salas interconectadas, que você pode atravessar livremente. À esquerda e à direita, você encontrará duas listas para serem configuradas.",
-			"O objetivo principal é que o [#78D7FF]nó central[/colour], localizado entre as duas listas, seja o último elemento de ambas. Para isso, cada lista deve estar corretamente configurada, pois a ativação do nó central depende da combinação de ambas."
-		]
-	};
+    title: "Lista Distribuída",
+    pages: [
+        "Esta área conecta duas salas em uma única sequência: a sala principal concentra a maior parte dos nós; a sala adjacente abriga o nó final.",
+        "A sequência atravessa o espaço entre as salas - trate-a como um único fluxo e configure a lista seguindo o esquema do [#928FB8]painel[/colour]."
+    ]
+};
+
 
 	d[$ "day3_array_overview"] = {
 		title: "Vetor e Células",
 		pages: [
-			"Um [#488BD4]Vetor[/colour] é uma sequência ordenada de posições chamadas [#488BD4]Células[/colour]. Visualmente, imagine uma fileira de compartimentos alinhados — cada célula pode receber um Datacore e manter esse núcleo em um lugar fixo dentro da estrutura.",
+			"Um [c_torres]Vetor[/colour] é uma sequência ordenada de posições chamadas [c_torres]Células[/colour] [spr_array_element, 0]. Visualmente, imagine uma fileira de compartimentos alinhados - cada [c_torres]célula[/colour] pode receber um [c_datacore]datacore[/colour] e manter esse núcleo em um lugar fixo dentro da estrutura.",
 			
-			"Cada [#488BD4]Célula[/colour] funciona de maneira semelhante a um [#488BD4]Data Slot[/colour]: ela segura um [#fafafa]Datacore[/colour] e o conecta ao sistema. A diferença principal é que as células estão organizadas como um grupo contíguo que forma o Vetor — elas pertencem a uma mesma sequência física e lógica.",
+			"Cada [c_torres]célula[/colour] funciona de maneira semelhante a um [c_torres]data-slot[/colour]: ela segura um [c_datacore]datacore[/colour] e o conecta ao sistema. A diferença principal é que as [c_torres]células[/colour] estão organizadas como um grupo contíguo que forma o Vetor - elas pertencem a uma mesma sequência física e lógica.",
 			
-			"Para acessar uma célula, o sistema usa um número chamado índice. O índice indica a posição da célula dentro do vetor (começando em zero): a célula de índice 0 é a primeira, índice 1 a segunda, e assim por diante. Quando o sistema precisa ler ou escrever em uma célula, ele usa esse índice para localizar a posição exata e operar diretamente naquela célula.",
+			"Para acessar uma [c_torres]célula[/colour], o sistema usa um número chamado índice. O índice indica a posição da [c_torres]célula[colour] dentro do vetor (começando em zero): a [c_torres]célula[/colour] de índice 0 é a primeira, índice 1 a segunda, e assim por diante. Quando o sistema precisa ler ou escrever em uma [c_torres]célula[/colour], ele usa esse índice para localizar a posição exata e operar diretamente naquela [c_torres]célula[/colour].",
 			
-			"Os Vetores servem para mostrar como dados ou núcleos podem ser organizados em espaços contíguos: em vez de 'seguir' um caminho de nó a nó, aqui você coloca o Datacore diretamente na célula desejada — cada célula representa um slot posicional fixo dentro do vetor.",
+			"Os Vetores servem para mostrar como dados ou núcleos podem ser organizados em espaços contíguos: em vez de 'seguir' um caminho de nó a nó, aqui você coloca o [c_datacore]datacore[/colour] diretamente na [c_torres]célula[/colour] desejada - cada [c_torres]célula[/colour] representa um slot posicional fixo dentro do vetor.",
 			
-			"Pense na célula como um Data Slot em linha: enquanto um Data Slot pode fazer parte de um nó (com um ponteiro ao lado), a célula participa de um agrupamento indexado — o Vetor — que não depende de torres ponteiros para localizar seus elementos.",
 		]
 	};
 
-	d[$ "day2_room1_instructions"] = {
-		title: "Primeira Tarefa com Arrays",
+	d[$ "day3_room1_instructions"] = {
+		title: "Instruções - Vetor",
 		pages: [
-			"Nesta sala, você verá uma sequência de [#488BD4]nós[/colour] de uma lista encadeada preenchidos com datacores, exibindo a ordem correta. Ao topo da sala há um [#488BD4]Vetor[/colour] de células vazias. ",
+			"Nesta sala, você verá uma sequência de [#488BD4]nós[/colour] de uma lista encadeada preenchidos com [c_datacore]datacores[/colour], exibindo a ordem correta. Ao topo da sala há um [c_objeto]Vetor[/colour] de células vazias. ",
 			
-			"Seu objetivo é copiar a sequência da lista e colocar os [#fafafa]Datacores[/colour] nas [#488BD4]Células[/colour] correspondentes, preenchendo o Vetor na mesma ordem mostrada pelos nós.",
+			"Seu objetivo é copiar a sequência da lista e colocar os [c_datacore]datacores[/colour] nas [c_torres]células[/colour] correspondentes, preenchendo o [c_objeto]Vetor[/colour] na mesma ordem mostrada pelos nós.",
 			
-			"Aproxime-se de uma célula e pressione [#78D7FF]E[/colour] para encaixar um datacore. Se quiser remover o datacore de um célula, pressione [#78D7FF]E[/colour] novamente — desde que suas mãos estejam livres.",
+			"Aproxime-se de uma [c_torres]célula[/colour] e pressione [c_tecla]E[/colour] para encaixar um [c_datacore]datacore[/colour]. Se quiser remover o [c_datacore]datacore[/colour] de um [c_torres]célula[/colour], pressione [c_tecla]E[/colour] novamente - desde que suas mãos estejam livres.",
 		]
 	};
 
 	d[$ "day3_array_concept"] = {
 		title: "Conceito de Vetor",
 		pages: [
-			"Em termos técnicos, um vetor (ou array) organiza valores em um espaço contíguo de memória. A posição física de uma elemento pode ser calculada a partir de um endereço-base mais o índice vezes o tamanho do elemento (posição = base + índice * tamanho). Esse mapeamento é o que permite acessar diretamente qualquer elemento pelo seu índice."
+			"Em termos técnicos, um [c_objeto]vetor[/colour] (ou array) organiza valores em um espaço contíguo de memória. A posição física de uma elemento pode ser calculada a partir de um endereço-base mais o índice vezes o tamanho do elemento (posição = base + índice * tamanho). Esse mapeamento é o que permite acessar diretamente qualquer elemento pelo seu índice."
 		]
 	};
 
 	d[$ "day3_room2_concept"] = {
 		title: "Inserção e Remoção",
 		pages: [
-			"Em uma lista encadeada, cada nó aponta para o próximo por meio de um ponteiro. Para remover um nó no meio da lista, basta ajustar o ponteiro do nó anterior para que ele passe a apontar para o seguinte — assim, o nó removido é simplesmente pulado. Já para inserir um novo nó, é preciso ligar o ponteiro do nó anterior ao novo nó, e então conectar o novo nó ao próximo, completando a cadeia novamente.",
-			"Em um [#488BD4]Vetor[/colour], as [#928FB8]Células[/colour] formam um bloco contínuo na memória — não há ponteiros que permitam saltar posições. Por isso, quando você remove um elemento do meio, é necessário mover todos os elementos seguintes uma posição para trás, fechando o espaço vazio. Do mesmo modo, ao inserir um elemento no meio, é preciso deslocar os elementos à frente para abrir espaço.",
-			"Com poucos elementos, essa diferença pode parecer pequena, mas em estruturas com centenas ou milhares de elementos o custo de mover cada célula cresce rapidamente. Por isso, em sistemas reais, a escolha entre uma [#488BD4]Lista Encadeada[/colour] ou um [#488BD4]Vetor[/colour] depende das operações que precisam ser feitas com mais frequência.",		
+			"Em uma lista encadeada, cada nó aponta para o próximo por meio de um [c_torres]ponteiro[/colour]. Para remover um nó no meio da lista, basta ajustar o [c_torres]ponteiro[/colour] do nó anterior para que ele passe a apontar para o seguinte - assim, o nó removido é simplesmente pulado. Já para inserir um novo nó, é preciso ligar o [c_torres]ponteiro[/colour] do nó anterior ao novo nó, e então conectar o novo nó ao próximo, completando a cadeia novamente.",
+			"Em um [c_objeto]Vetor[/colour], as [c_torres]células[/colour] formam um bloco contínuo na memória - não há [c_torres]ponteiros[/colour] que permitam saltar posições. Por isso, quando você remove um elemento do meio, é necessário mover todos os elementos seguintes uma posição para trás, fechando o espaço vazio. Do mesmo modo, ao inserir um elemento no meio, é preciso deslocar os elementos à frente para abrir espaço.",
+			"Com poucos elementos, essa diferença pode parecer pequena, mas em estruturas com centenas ou milhares de elementos o custo de mover cada [c_torres]célula[/colour] cresce rapidamente. Por isso, em sistemas reais, a escolha entre uma [#488BD4]Lista Encadeada[/colour] ou um [c_torres]Vetor[/colour] depende das operações que precisam ser feitas com mais frequência.",		
 		]
 	};
 	
@@ -212,20 +182,20 @@ function concepts_data() {
 	d[$ "day3_room2_instructions"] = {
 		title: "Reorganizando Estruturas",
 		pages: [
-			"Você está diante de dois pares de estruturas: [#488BD4]Listas Encadeadas[/colour] e [#488BD4]Vetores[/colour]. Cada par contém a mesma sequência de [#fafafa]Datacores[/colour].",
-			"Seu trabalho é reorganizar as estruturas conforme os [#928FB8]painéis[/colour] de referência: no primeiro par, remova um [#fafafa]Datacore[/colour] do meio da sequência; no segundo par, insira esse mesmo [#fafafa]Datacore[/colour] na posição indicada.",
-			"Nas [#488BD4]Listas Encadeadas[/colour], ajuste as ligações dos [#928FB8]ponteiros[/colour] para manter a sequência contínua. Nos [#488BD4]Vetores[/colour], mova os [#fafafa]Datacores[/colour] de modo que não reste nenhum espaço vazio entre as [#928FB8]Células[/colour].",		
+			"Você está diante de dois pares de estruturas: [c_objeto]Listas Encadeadas[/colour] e [c_objeto]Vetores[/colour]. Cada par contém a mesma sequência de [c_datacore]datacores[/colour].",
+			"Seu trabalho é reorganizar as estruturas conforme os [#928FB8]painéis[/colour] de referência: no primeiro par, remova um [c_datacore]datacore[/colour] do meio da sequência; no segundo par, insira esse mesmo [c_datacore]datacore[/colour] na posição indicada.",
+			"Nas [#488BD4]Listas Encadeadas[/colour], ajuste as ligações dos [c_torres]ponteiros[/colour] para manter a sequência contínua. Nos [c_objeto]vetores[/colour], mova os [c_datacore]datacores[/colour] de modo que não reste nenhum espaço vazio entre as [c_white]células[/colour].",		
 		]
 	};
 
 	d[$ "day3_room3_concept"] = {
 		title: "Leitura: Vetor vs Lista",
 		pages: [
-			"Aqui você verá como a informação é percorrida dentro de duas estruturas diferentes: o [#488BD4]Vetor[/colour] e a [#78D7FF]Lista Encadeada[/colour]. Ambas armazenam dados, mas o caminho até cada valor é bem distinto.",
-			"No [#488BD4]Vetor[/colour], cada célula ocupa um espaço contíguo na memória. Isso permite que o sistema calcule a posição exata de qualquer elemento a partir de seu índice — sem precisar percorrer o restante da estrutura. É como abrir uma gaveta numerada e pegar o item certo de uma vez.",
-			"Já na [#78D7FF]Lista Encadeada[/colour], os dados estão distribuídos em diferentes endereços de memória, conectados por ponteiros. Cada nó sabe apenas onde está o próximo, então para encontrar um elemento específico, é preciso seguir essa corrente, nó por nó, até alcançá-lo.",
-			"Durante a simulação, o painel central exibirá o índice atual e alternará entre as duas leituras. No [#488BD4]Vetor[/colour], a célula correspondente será iluminada de imediato; na [#78D7FF]Lista[/colour], os nós acenderão em sequência até chegar ao valor pedido.",
-			"Você não precisa realizar nenhuma ação nesta sala — apenas observe e perceba como cada estrutura lida com o processo de leitura de um valor."
+			"Aqui você verá como a informação é percorrida dentro de duas estruturas diferentes: o [c_objeto]Vetor[/colour] e a [c_objeto]Lista Encadeada[/colour]. Ambas armazenam dados, mas o caminho até cada valor é bem distinto.",
+			"No [c_objeto]Vetor[/colour], cada [c_torres]célula[/colour] ocupa um espaço contíguo na memória. Isso permite que o sistema calcule a posição exata de qualquer elemento a partir de seu índice - sem precisar percorrer o restante da estrutura. É como abrir uma gaveta numerada e pegar o item certo de uma vez.",
+			"Já na [c_objeto]Lista Encadeada[/colour], os dados estão distribuídos em diferentes endereços de memória, conectados por [c_torres]ponteiros[/colour]. Cada nó sabe apenas onde está o próximo, então para encontrar um elemento específico, é preciso seguir essa corrente, nó por nó, até alcançá-lo.",
+			"Durante a simulação, o painel central exibirá a posição do elemento desejado e alternará entre as duas leituras. No [c_objeto]Vetor[/colour], a [c_torres]célula[/colour] correspondente será iluminada de imediato; na [c_objeto]Lista[/colour], os nós acenderão em sequência até chegar ao valor pedido.",
+			"Você não precisa realizar nenhuma ação nesta sala - apenas observe e perceba como cada estrutura lida com o processo de leitura de um valor."
 		]
 	};
 	
@@ -271,6 +241,8 @@ function concept_unlock(concept_id) {
     //array_push(global.unlocked_concepts, concept_id);
     array_insert(global.unlocked_concepts, 0, concept_id);
 	
+	concept_add_unread(concept_id);
+	
 	// optional: immediate feedback to player
     //show_popup("Novo conceito desbloqueado: " + string(c.title), 2);
 	show_concept_notify();
@@ -304,5 +276,45 @@ function concept_build_list_for_tablet() {
         }
     }
     return out;
+}
+
+
+
+
+/// concept_add_unread(concept_id)
+function concept_add_unread(concept_id) {
+    if (is_undefined(concept_id) || !is_string(concept_id) || string_length(concept_id) == 0) return false;
+    if (!variable_global_exists("unread_concepts")) global.unread_concepts = [];
+    // evita duplicatas
+    for (var i = 0; i < array_length(global.unread_concepts); ++i) {
+        if (global.unread_concepts[i] == concept_id) return false;
+    }	
+    array_insert(global.unread_concepts, 0, concept_id);
+    return true;
+}
+
+/// concept_mark_read(concept_id) -> remove da lista de não-lidos (retorna true se removeu)
+function concept_mark_read(concept_id) {
+    if (!variable_global_exists("unread_concepts")) return false;
+    var removed = false;
+    // remove todas as ocorrências por segurança
+    var i = array_length(global.unread_concepts) - 1;
+    while (i >= 0) {
+        if (global.unread_concepts[i] == concept_id) {
+            array_delete(global.unread_concepts, i, 1);
+            removed = true;
+        }
+        i -= 1;
+    }
+    return removed;
+}
+
+/// concept_is_unread(concept_id) -> true/false
+function concept_is_unread(concept_id) {
+    if (!variable_global_exists("unread_concepts")) return false;
+    for (var i = 0; i < array_length(global.unread_concepts); ++i) {
+        if (global.unread_concepts[i] == concept_id) return true;
+    }
+    return false;
 }
 

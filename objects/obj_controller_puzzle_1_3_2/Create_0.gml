@@ -12,7 +12,13 @@ global.puzzle_1_3_2_completed = false;
 
 on_complete = function() {
 	if (!global.puzzle_1_3_2_completed) {
-		audio_play_sound(snd_puzzle_solved, 0, false, 1, 0, 1);
+		audio_play_sound(snd_puzzle_solved_unused, 0, false, 1, 0, 1);
 		global.puzzle_1_3_2_completed = true;
+	}
+}
+
+on_descomplete = function() {
+	if (global.puzzle_1_3_2_completed) {
+		global.puzzle_1_3_2_completed = false;
 	}
 }

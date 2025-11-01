@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_new_day",
+  "audioGroupId":{
+    "name":"SFX",
+    "path":"audiogroups/SFX",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":0,
+  "duration":1.7066667,
+  "name":"snd_new_day",
+  "parent":{
+    "name":"Sons",
+    "path":"folders/Sons.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_new_day.wav",
+  "type":0,
+  "volume":1.0,
+}

@@ -29,6 +29,10 @@ switch (state) {
         if (timer >= visible_duration_seconds) {
             state = "fading_out";
             timer = 0; // Reinicia o timer para o próximo estado
+			if(!global.tab_tutorial_opened) {
+				global.tab_tutorial_opened = true;
+				instance_create_layer(0, 0, "GUI", obj_popup_close_tab);
+			}
         }
         break;
 
@@ -40,7 +44,9 @@ switch (state) {
 
         // Destrói a instância ao final
         if (timer >= fade_duration_seconds) {
+			global.ui_blocked = false;
             instance_destroy();
         }
         break;
 }
+

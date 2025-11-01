@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_puzzle_solved_unused",
+  "audioGroupId":{
+    "name":"SFX",
+    "path":"audiogroups/SFX",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":0,
+  "duration":1.8459864,
+  "name":"snd_puzzle_solved_unused",
+  "parent":{
+    "name":"Sons",
+    "path":"folders/Sons.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_puzzle_solved_unused.wav",
+  "type":0,
+  "volume":0.0,
+}

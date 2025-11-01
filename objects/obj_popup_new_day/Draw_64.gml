@@ -17,14 +17,12 @@ var py_base = sh - 90 + y_offset; // posição base (ajuste -90 conforme layout)
 var py = py_base;
 var py = (sh - panel_h) / 2;
 
-// draw background (rounded look is approximated with simple rect for now)
-draw_set_alpha(alpha * 0.95);
-draw_set_color(popup_color);
-draw_rectangle(px, py, px + panel_w, py + panel_h, false);
-
-// overlay inner slightly lighter
-draw_set_alpha(alpha * 0.6);
-draw_rectangle(px + 2, py + 2, px + panel_w - 2, py + panel_h - 2, false);
+if (alpha > 0) {
+    draw_set_alpha(alpha * 0.6);
+	if(state == "fading_in") draw_set_alpha(0.6);
+    draw_set_color(c_black);
+    draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+}
 
 // texto
 draw_set_alpha(alpha);
@@ -32,7 +30,8 @@ draw_set_font(font_to_use);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_set_color(text_color);
-draw_text(px + panel_w / 2, py + panel_h / 2, text);
+
+draw_sprite(spr_day_x, index_to_use, px + panel_w / 2, py + panel_h / 2);
 
 // restore
 draw_set_alpha(1);

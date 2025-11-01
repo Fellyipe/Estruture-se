@@ -30,8 +30,16 @@ global.puzzle_3_3_completed = false;
 
 on_complete = function() {
 	if (!global.puzzle_3_3_completed) {
+		audio_play_sound(snd_puzzle_solved_unused, 0, false, 1, 0, 1);
 		global.puzzle_3_3_completed = true;
 	}
 }
 
-//concept_unlock("concept.arrays");
+if (concept_unlock("day3_room3_concept")) {
+
+	with (obj_notification) {
+	    instance_destroy();
+	}
+	
+	instance_create_layer(0, 0, "GUI", obj_notification);
+}

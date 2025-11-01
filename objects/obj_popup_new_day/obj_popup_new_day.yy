@@ -13,7 +13,10 @@
     "name":"Objetos GUI",
     "path":"folders/Objetos/Objetos GUI.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_pauser",
+    "path":"objects/obj_pauser/obj_pauser.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

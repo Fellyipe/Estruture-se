@@ -35,12 +35,24 @@ global.puzzle_2_3_1_completed = false;
 
 on_complete = function() {
 	if(!global.puzzle_2_3_1_completed) {
+		audio_play_sound(snd_puzzle_solved_unused, 0, false, 1, 0, 1);
 		global.puzzle_2_3_1_completed = true;
 	}
 };
 
+on_descomplete = function() {
+	if(global.puzzle_2_3_1_completed) {
+		global.puzzle_2_3_1_completed = false;
+	}
+};
 
-obj_tablet.objective_set_visible("day_02_puzzle", "p2_1_report", true);
+if (concept_unlock("day2_room3_overview")) {
+	with (obj_notification) {
+		    instance_destroy();
+	}
+	instance_create_layer(0, 0, "GUI", obj_notification);
+}
+//obj_tablet.objective_set_visible("day_02_puzzle", "p2_1_report", true);
 
 
 //// no controller da sala, ao fechar/ir ao lobby:

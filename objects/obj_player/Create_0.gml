@@ -20,6 +20,11 @@ sprite[UP] = spr_player_up_work;
 sprite[LEFT] = spr_player_left_work;
 sprite[DOWN] = spr_player_down_work;
 
+sprite_carrying[RIGHT] = spr_player_right_work_carrying;
+sprite_carrying[UP] = spr_player_up_work_carrying;
+sprite_carrying[LEFT] = spr_player_left_work_carrying;
+sprite_carrying[DOWN] = spr_player_down_work_carrying;
+
 face = DOWN;
 
 view_zoom = 1;

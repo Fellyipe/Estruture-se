@@ -1,0 +1,1 @@
+flag_list = ["puzzle_3_1_completed", "puzzle_3_2_1_completed", "puzzle_3_2_2_completed", "puzzle_3_2_3_completed", "puzzle_3_2_4_completed", "puzzle_3_3_completed"];

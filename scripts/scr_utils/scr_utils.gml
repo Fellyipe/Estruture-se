@@ -73,14 +73,15 @@ function show_popup_new_day(msg, seconds = 3, fade_seconds = 0.4) {
 /// spr  -> (opcional) sprite index ou sprite name; se não passado, usa global.spr_notify se existir.
 function show_concept_notify() {	
 	// limpa notificações antigas (apenas 1 de cada vez)
-	with (obj_notification) {
-	    instance_destroy();
-	}
+	//with (obj_notification) {
+	//    instance_destroy();
+	//}
 
-	// criar na layer GUI (ou nome da sua layer)
-	var lay = "GUI";
-	if (!layer_exists(lay)) lay = layer_get_id("Instances"); // fallback
-	var inst = instance_create_layer(0, 0, lay, obj_notification);
-	//inst.spawn_room = room_get_name(room);
-	return inst;
+	//// criar na layer GUI (ou nome da sua layer)
+	//var lay = "GUI";
+	//if (!layer_exists(lay)) lay = layer_get_id("Instances"); // fallback
+	//var inst = instance_create_layer(0, 0, lay, obj_notification);
+	////inst.spawn_room = room_get_name(room);
+	//return inst;
+	return noone;
 }

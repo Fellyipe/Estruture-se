@@ -11,6 +11,7 @@ input_cooldown_max = 8; // frames
 // Visual configuration
 label_font = fnt_secondary_18;
 label_color = c_white;
+new_concept_color = #488BD4;
 bg_color = make_color_rgb(18,20,24);
 panel_color = make_color_rgb(28,34,40);
 tab_active_color = make_color_rgb(64,200,255);
@@ -21,6 +22,13 @@ animation_progress = 0;
 is_visible = true;
 animation_speed = 0.1;
 
+conceptual_scroll_top = 0;
+items_visiveis_na_lista = 1;
+
+objectives_popup_shown = false;
+
+global.objectives_popup_shown_by_room = {};
+
 
 scribble_font_set_default("fnt_secondary_18");
 //scribble_c
@@ -29,7 +37,7 @@ current_text_cache = "";        // Irá guardar a string atual para comparação
 
 
 // Tabs (order matters)
-tabs = ["Conceitual", "Objetivos", "Opções"];
+tabs = ["Conceitual", "Objetivos"];
 
 // Placeholder content arrays for each tab (simple strings). Replace these with your real content later
 //content_conceitual = [];
@@ -96,6 +104,32 @@ function tablet_get_objectives_for_day(day_id) {
     return out;
 }
 
+function tablet_get_objectives_for_room() {
+    var out = [];
+	rm_name = room_get_name(room);
+    if (!variable_struct_exists(objectives_by_day, rm_name)) return out;
+    var arr = objectives_by_day[$ rm_name];
+    for (var i = 0; i < array_length(arr); ++i) {
+        var it = arr[i];
+        var show = false;
+        if (is_bool(it.visible)) show = it.visible;
+        else if (is_callable(it.visible)) {
+            // chamamos a função defensivamente
+            var ok = false;
+            try {
+                ok = it.visible();
+            } catch (e) {
+                ok = false;
+            }
+            show = ok;
+        } else {
+            show = true;
+        }
+        if (show) array_push(out, it);
+    }
+    return out;
+}
+
 function tablet_is_objective_complete(flag) {
     if (flag == "" || is_undefined(flag)) return false;
     if (!variable_global_exists(flag)) return false;
@@ -127,37 +161,37 @@ function objective_set_visible(day_key, obj_id, new_visible) {
 // action é uma function() { ... } ou function(arg) { ... }
 // A ação deve ser defensiva (verificar existência de managers, etc.)
 options_items = [
-    {
-        text: "Salvar",
-        name: "save",
-        use_id: false,
-        action: function() { 
-					var rn = room_get_name(room);
-					with (obj_save_manager) {
-						var room_rec = save_room_state_simple(rn); // retorna struct
-						if (!variable_struct_exists(save_state,"rooms")) save_state.rooms = {};
-						save_state.rooms[$ rn] = room_rec;
-						save_state.player = { x: obj_player.x, y: obj_player.y, room_index: room, room_name: room_get_name(room) };
-						save_slot(1);
-						show_popup("Jogo salvo no slot 1");
-					}
-				} 
-    },
-    {
-        text: "Carregar",
-        name: "load",
-        use_id: false,
-        action: function() { 
-					on_close_tablet();
-					with (global.save_manager) {
-						load_slot(1);
-					}
-					tablet_open = false;
-					global.is_paused = tablet_open;
-					global.ui_blocked = false
-					show_popup("Jogo carregado do slot 1");
-				} 
-    },
+    //{
+    //    text: "Salvar",
+    //    name: "save",
+    //    use_id: false,
+    //    action: function() { 
+	//				var rn = room_get_name(room);
+	//				with (obj_save_manager) {
+	//					var room_rec = save_room_state_simple(rn); // retorna struct
+	//					if (!variable_struct_exists(save_state,"rooms")) save_state.rooms = {};
+	//					save_state.rooms[$ rn] = room_rec;
+	//					save_state.player = { x: obj_player.x, y: obj_player.y, room_index: room, room_name: room_get_name(room) };
+	//					save_slot(1);
+	//					show_popup("Jogo salvo no slot 1");
+	//				}
+	//			} 
+    //},
+    //{
+    //    text: "Carregar",
+    //    name: "load",
+    //    use_id: false,
+    //    action: function() { 
+	//				on_close_tablet();
+	//				with (global.save_manager) {
+	//					load_slot(1);
+	//				}
+	//				tablet_open = false;
+	//				global.is_paused = tablet_open;
+	//				global.ui_blocked = false
+	//				show_popup("Jogo carregado do slot 1");
+	//			} 
+    //},
     {
         text: "✖ Sair",
         name: "back",
@@ -187,4 +221,4 @@ function on_close_tablet() {
 
 
 // Just to centralize contents for easier indexing later
-contents = [conceptual_items, content_objetivos, content_opcoes];
+contents = [conceptual_items, content_objetivos];

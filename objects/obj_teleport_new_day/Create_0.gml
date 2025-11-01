@@ -17,3 +17,4 @@ persistent = true;
 depth = -124545
 
 global.ui_blocked = true;
+global.already_worked = false;

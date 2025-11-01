@@ -246,7 +246,7 @@ if ix == 0 {
 if iy > 0 && face == UP {face = DOWN};
 if iy < 0 && face == DOWN {face = UP};
 
-sprite_index = sprite[face];
+if (carrying != noone) sprite_index = sprite_carrying[face] else sprite_index = sprite[face];
 
 // atribui a máscara de colisão do sprite para baixo, como máscara geral
 mask_index = sprite[DOWN]

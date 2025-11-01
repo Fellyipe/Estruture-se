@@ -14,8 +14,18 @@ global.puzzle_1_3_1_completed = false;
 
 on_complete = function() {
 	if (!global.puzzle_1_3_1_completed) {
-		audio_play_sound(snd_puzzle_solved, 0, false, 1, 0, 1);
+		audio_play_sound(snd_puzzle_solved_unused, 0, false, 1, 0, 1);
 		global.puzzle_1_3_1_completed = true;
+		if(global.puzzle_1_3_2_completed) {
+			if(concept_unlock("day1_ending")) {
+			
+				with (obj_notification) {
+					    instance_destroy();
+				}
+	
+				instance_create_layer(0, 0, "GUI", obj_notification);
+			}
+		}
 	}
 	with(obj_lightning_wall) {
 		if obj_id = "puzzle_wall"{ 
@@ -38,4 +48,11 @@ on_descomplete = function() {
 }
 
 
-concept_unlock("day1_room3_overview");
+if(concept_unlock("day1_room3_overview")) {
+
+	with (obj_notification) {
+		    instance_destroy();
+	}
+	
+	instance_create_layer(0, 0, "GUI", obj_notification);
+}

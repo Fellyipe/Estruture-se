@@ -515,7 +515,7 @@ function apply_room_state_simple(room_name, rooms_struct = save_state.rooms) {
             } else {
                 // update payload
                 //if (variable_instance_exists(core, "payload")) core.payload = drec.payload;
-                core.x = drec.x; core.y = drec.y; core.in_tower_node_label = drec.in_tower_node_label; core.in_tower_tower_id = core.in_tower_tower_id;
+                core.x = drec.x; core.y = drec.y; core.in_tower_node_label = drec.in_tower_node_label; core.in_tower_tower_id = drec.in_tower_tower_id;
 				
 				
 				if core.in_tower_node_label != "" {

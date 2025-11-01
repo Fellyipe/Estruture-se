@@ -26,7 +26,7 @@ global.puzzle_2_1_completed = false;
 
 on_complete = function() {
 	if (!global.puzzle_2_1_completed) {
-		audio_play_sound(snd_puzzle_solved, 0, false, 1, 0, 1);
+		audio_play_sound(snd_puzzle_solved_unused, 0, false, 1, 0, 1);
 		global.puzzle_2_1_completed = true;
 	}
 }
@@ -37,4 +37,15 @@ on_descomplete = function() {
 	}
 }
 
-//concept_unlock("concept.pointers");
+
+var unlock1 = concept_unlock("day2_room1_instructions");
+var unlock2 = concept_unlock("day2_datacore_node_concept");
+if (unlock1 || unlock2) {
+	with (obj_notification) {
+		    instance_destroy();
+	}
+	
+	instance_create_layer(0, 0, "GUI", obj_notification);
+}
+
+global.already_worked = true;

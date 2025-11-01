@@ -7,6 +7,11 @@ if (!global.popup_called) {
 
 global.popup_called = true;
 
-concept_unlock("welcome_day1");
+if (concept_unlock("welcome_day1")) {
+	with (obj_notification) {
+		    instance_destroy();
+	}
+	
+	instance_create_layer(0, 0, "GUI", obj_notification);
+}
 
-show_popup("Aperte Tab para abrir o tablet", 6);

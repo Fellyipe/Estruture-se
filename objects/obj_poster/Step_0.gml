@@ -8,7 +8,7 @@ var p = instance_nearest(x, y, obj_player);
 var can_interact = (p != noone) && point_distance(x, y, p.x, p.y) <= prompt_distance;
 
 // abrir overlay
-if (!is_open && can_interact && keyboard_check_pressed(ord("E")) && input_cooldown == 0) {
+if (!is_open && can_interact && keyboard_check_pressed(ord("Q")) && input_cooldown == 0) {
     // não abrir se já existe outro overlay aberto
     if (global.ui_blocked) {
         // opcional: feedback breve
@@ -31,9 +31,9 @@ if (animation_progress < 0.95) {
     exit;
 }
 
-// fechar overlay com E ou ESC
+// fechar overlay com Q ou ESC
 if (is_open) {
-    if ((keyboard_check_pressed(ord("E")) || (allow_close_with_esc && keyboard_check_pressed(vk_escape))) && input_cooldown == 0) {
+    if ((keyboard_check_pressed(ord("Q")) || (allow_close_with_esc && keyboard_check_pressed(vk_escape))) && input_cooldown == 0) {
         is_open = false;
         global.ui_blocked = false;
         global.is_paused = _prev_paused;
